@@ -5,163 +5,163 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#150b1d">
 <meta name="robots" content="noindex">
-<meta name="description" content="Installer FruitRadar dans Chrome : la clé, le téléchargement, le chargement de l'extension.">
+<meta name="description" content="Installer FruitRadar dans Chrome en quatre étapes.">
 <title>Installer FruitRadar</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Lexend:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  /* Page d'installation. Même nuit, même crème et même mangue que la page d'accueil. Une seule colonne : les étapes se suivent,
-     chacune sur son panneau, avec son numéro dans la marge. Les deux boutons de la clé sont les seules surfaces vives. */
+  /* Page d'installation, dans la même direction que la page d'accueil : le mur de scènes qui défile en fond, des panneaux sombres
+     presque opaques, la mangue pour ce qui se clique. Quatre étapes, un gros numéro, une phrase et une action par étape. */
   :root {
-    --nuit: #150b1d;
-    --prune: #231530;
-    --creme: #f7efe8;
-    --brume: rgba(247, 239, 232, .74);
-    --trait: rgba(255, 255, 255, .13);
-    --mangue: #ffb21f;
-    --encre: #24130a;
+    --nuit: #150b1d; --prune: #231530; --creme: #f7efe8; --brume: rgba(247, 239, 232, .8); --trait: rgba(255, 255, 255, .14);
+    --mangue: #ffb21f; --encre: #24130a;
     --titre: "Bricolage Grotesque", "Trebuchet MS", system-ui, sans-serif;
     --corps: "Lexend", system-ui, -apple-system, "Segoe UI", sans-serif;
   }
   *, *::before, *::after { box-sizing: border-box; }
   html { -webkit-text-size-adjust: 100%; }
-  body { margin: 0; min-height: 100vh; min-height: 100dvh; background: radial-gradient(120% 60% at 50% 0%, #2a1638 0%, var(--nuit) 62%) fixed var(--nuit); color: var(--creme); font: 400 1rem/1.6 var(--corps); }
+  body { margin: 0; min-height: 100vh; min-height: 100dvh; background: var(--nuit); color: var(--creme); font: 400 1.06rem/1.5 var(--corps); overflow-x: clip; }
+  img { display: block; max-width: 100%; height: auto; }
   p, h1, h2, ol, ul { margin: 0; }
   ol, ul { padding: 0; list-style: none; }
   a { color: inherit; }
   button { font: inherit; color: inherit; }
-  :focus-visible { outline: 3px solid var(--mangue); outline-offset: 3px; border-radius: 8px; }
+  :focus-visible { outline: 3px solid #fff; outline-offset: 3px; border-radius: 10px; }
 
-  .page { width: 100%; max-width: 640px; margin: 0 auto; padding: 28px 16px 44px; display: grid; gap: 18px; }
-  .retour { justify-self: start; font-size: .92rem; color: var(--brume); text-underline-offset: 3px; }
-  .retour:hover { color: var(--creme); }
+  .fond { position: fixed; inset: 0; z-index: -1; overflow: hidden; background: var(--nuit); }
+  .mur { position: absolute; inset: -16% -30%; display: flex; gap: 12px; justify-content: center; transform: rotate(-8deg); }
+  .col { flex: 0 0 clamp(120px, 31vw, 184px); align-self: flex-start; display: flex; flex-direction: column; animation: monte 70s linear infinite; }
+  .col img { width: 100%; height: auto; }
+  .col:nth-child(even) { animation-name: descend; animation-duration: 84s; }
+  .col:nth-child(3n) { animation-duration: 96s; }
+  @keyframes monte { from { transform: translateY(0); } to { transform: translateY(-50%); } }
+  @keyframes descend { from { transform: translateY(-50%); } to { transform: translateY(0); } }
+  .fond::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(21, 11, 29, .7), rgba(21, 11, 29, .84) 60%, rgba(21, 11, 29, .9)); }
+  @media (max-width: 700px) { .col:nth-child(n+6) { display: none; } }
 
-  .tete { padding: 10px 4px 6px; }
-  .tete h1 { font: 800 clamp(2.2rem, 9vw, 3.1rem)/1.02 var(--titre); letter-spacing: -.03em; }
-  .tete p { margin-top: 10px; color: var(--brume); max-width: 46ch; }
+  .page { width: 100%; max-width: 540px; margin: 0 auto; padding: 18px 16px 36px; display: grid; gap: 16px; }
+  .panneau { background: rgba(24, 13, 34, .9); border: 1px solid var(--trait); border-radius: 26px; padding: 22px 20px; -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); box-shadow: 0 26px 54px -32px rgba(0, 0, 0, .9); }
 
-  .etapes { display: grid; gap: 14px; counter-reset: etape; }
-  .etape { position: relative; counter-increment: etape; background: rgba(24, 13, 34, .9); border: 1px solid var(--trait); border-radius: 22px; padding: 20px 18px 20px 68px; }
-  .etape::before { content: counter(etape); position: absolute; left: 18px; top: 18px; width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; background: var(--prune); border: 1px solid var(--trait); font: 700 1.05rem/1 var(--titre); color: var(--mangue); }
-  .etape h2 { font: 700 1.3rem/1.2 var(--titre); letter-spacing: -.01em; }
-  .etape > p { margin-top: 8px; color: var(--brume); max-width: 58ch; }
-  .etape > p strong, .etape li strong { color: var(--creme); font-weight: 600; }
-  .etape ul { margin-top: 10px; display: grid; gap: 8px; color: var(--brume); }
-  .etape ul li { padding-left: 18px; position: relative; max-width: 58ch; }
-  .etape ul li::before { content: ""; position: absolute; left: 2px; top: .68em; width: 6px; height: 6px; border-radius: 50%; background: var(--mangue); opacity: .85; }
+  .tete { text-align: center; padding: 30px 20px 26px; }
+  .retour { display: inline-block; margin-bottom: 16px; font-size: .9rem; color: var(--brume); text-underline-offset: 3px; }
+  .tete h1 { font: 800 clamp(2.5rem, 12vw, 3.4rem)/1 var(--titre); letter-spacing: -.035em; }
+  .tete h1 em { font-style: normal; color: var(--mangue); }
+  .tete p { margin-top: 12px; font-size: 1.1rem; }
+  .puces { margin-top: 16px; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+  .puces li { padding: 7px 13px; border-radius: 999px; background: rgba(255, 255, 255, .08); border: 1px solid var(--trait); font-size: .88rem; font-weight: 500; }
 
-  /* les deux clés */
-  .choix { margin-top: 14px; display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
-  .cle { display: grid; gap: 4px; align-content: start; padding: 14px 16px 15px; border-radius: 16px; text-decoration: none; border: 1px solid var(--trait); background: var(--prune); transition: transform .15s ease, border-color .15s ease; }
-  .cle b { font: 700 1.08rem/1.25 var(--titre); }
-  .cle span { font-size: .9rem; line-height: 1.45; color: var(--brume); }
-  .cle:hover { transform: translateY(-2px); border-color: rgba(255, 255, 255, .3); }
+  .etapes { display: grid; gap: 16px; }
+  .etape { display: grid; grid-template-columns: 54px 1fr; column-gap: 14px; align-items: start; }
+  .num { width: 54px; height: 54px; border-radius: 18px; display: grid; place-items: center; background: var(--mangue); color: var(--encre); font: 800 1.7rem/1 var(--titre); }
+  .etape h2 { font: 800 1.5rem/1.15 var(--titre); letter-spacing: -.02em; padding-top: 3px; }
+  .etape h2 + p { margin-top: 5px; color: var(--creme); }
+  .suite { grid-column: 1 / -1; margin-top: 16px; }
+
+  .choix { display: grid; gap: 10px; }
+  .cle { display: grid; grid-template-columns: 1fr auto; gap: 2px 12px; align-items: center; padding: 16px 18px; border-radius: 18px; text-decoration: none; border: 1px solid var(--trait); background: rgba(255, 255, 255, .07); transition: transform .2s, filter .2s; }
+  .cle b { font: 800 1.2rem/1.2 var(--titre); }
+  .cle span { grid-column: 1; font-size: .95rem; color: var(--brume); }
+  .cle i { grid-row: 1 / span 2; grid-column: 2; font-style: normal; font: 800 1.15rem/1 var(--titre); white-space: nowrap; }
+  .cle:hover { transform: translateY(-2px); filter: brightness(1.08); }
   .cle.vive { background: var(--mangue); border-color: var(--mangue); color: var(--encre); }
-  .cle.vive span { color: rgba(36, 19, 10, .78); }
+  .cle.vive span { color: rgba(36, 19, 10, .8); }
 
-  .bouton { display: inline-flex; align-items: center; gap: 8px; margin-top: 14px; padding: 12px 18px; border-radius: 14px; background: var(--creme); color: var(--encre); font-weight: 600; text-decoration: none; border: 0; cursor: pointer; transition: transform .15s ease; }
-  .bouton:hover { transform: translateY(-2px); }
-  .bouton svg { width: 18px; height: 18px; }
+  .appel { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 16px 18px; border-radius: 16px; background: var(--mangue); color: var(--encre); font-weight: 600; font-size: 1.08rem; text-decoration: none; border: 0; width: 100%; cursor: pointer; transition: transform .2s, filter .2s; }
+  .appel:hover { filter: brightness(1.06); transform: translateY(-1px); }
+  .appel svg { width: 20px; height: 20px; }
+  .appel[data-fait] { background: var(--creme); }
 
-  .adresse { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
-  .adresse code { font: 500 .95rem/1 ui-monospace, "Cascadia Mono", Menlo, monospace; padding: 10px 12px; border-radius: 10px; background: #0e0714; border: 1px solid var(--trait); color: var(--creme); }
-  .copier { padding: 9px 13px; border-radius: 10px; background: transparent; border: 1px solid var(--trait); cursor: pointer; font-size: .9rem; }
-  .copier:hover { border-color: rgba(255, 255, 255, .34); }
-  .copier[data-fait] { border-color: var(--mangue); color: var(--mangue); }
+  .gestes { margin-top: 12px; display: grid; gap: 8px; counter-reset: g; }
+  .gestes li { counter-increment: g; display: grid; grid-template-columns: 26px 1fr; gap: 10px; align-items: center; padding: 11px 14px; border-radius: 14px; background: rgba(255, 255, 255, .06); border: 1px solid var(--trait); font-weight: 500; }
+  .gestes li::before { content: counter(g); width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; background: var(--prune); color: var(--mangue); font: 700 .9rem/1 var(--titre); }
 
-  .asavoir { padding: 4px 6px 0; display: grid; gap: 8px; color: var(--brume); font-size: .93rem; }
-  .asavoir b { color: var(--creme); font-weight: 600; }
-  .pied { padding: 10px 6px 0; font-size: .85rem; color: var(--brume); }
+  .infos { display: grid; gap: 10px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .infos li { padding: 14px 10px; border-radius: 18px; background: rgba(24, 13, 34, .9); border: 1px solid var(--trait); text-align: center; font-size: .82rem; line-height: 1.35; color: var(--brume); }
+  .infos b { display: block; margin-bottom: 4px; font: 800 1rem/1.2 var(--titre); color: var(--creme); }
+  @media (max-width: 420px) { .infos { grid-template-columns: 1fr; } }
 
-  @media (max-width: 480px) {
-    .etape { padding: 62px 16px 18px 16px; }
-    .etape::before { left: 16px; top: 16px; }
-  }
-  @media (prefers-reduced-motion: reduce) { .cle, .bouton { transition: none; } .cle:hover, .bouton:hover { transform: none; } }
+  .pied { text-align: center; font-size: .8rem; color: var(--brume); padding-top: 4px; }
+  .pied strong { color: var(--creme); }
+  @media (prefers-reduced-motion: reduce) { .col { animation: none; } .cle, .appel { transition: none; } }
 </style>
 </head>
 <body>
-<main class="page">
-  <a class="retour" href="./">Retour à FruitRadar</a>
+<div class="fond" aria-hidden="true"><div class="mur"><div class="col"><img src="mur-1.jpg" alt=""><img src="mur-1.jpg" alt=""></div><div class="col"><img src="mur-2.jpg" alt=""><img src="mur-2.jpg" alt=""></div><div class="col"><img src="mur-3.jpg" alt=""><img src="mur-3.jpg" alt=""></div><div class="col"><img src="mur-4.jpg" alt=""><img src="mur-4.jpg" alt=""></div><div class="col"><img src="mur-5.jpg" alt=""><img src="mur-5.jpg" alt=""></div><div class="col"><img src="mur-6.jpg" alt=""><img src="mur-6.jpg" alt=""></div><div class="col"><img src="mur-7.jpg" alt=""><img src="mur-7.jpg" alt=""></div><div class="col"><img src="mur-8.jpg" alt=""><img src="mur-8.jpg" alt=""></div><div class="col"><img src="mur-1.jpg" alt=""><img src="mur-1.jpg" alt=""></div><div class="col"><img src="mur-2.jpg" alt=""><img src="mur-2.jpg" alt=""></div></div></div>
 
-  <header class="tete">
-    <h1>Installer FruitRadar</h1>
-    <p>Sur ordinateur, dans Chrome. Compte cinq minutes, et garde cette page ouverte à côté.</p>
+<main class="page">
+  <header class="panneau tete">
+    <a class="retour" href="./">Retour à FruitRadar</a>
+    <h1>Installe <em>FruitRadar</em></h1>
+    <p>Quatre étapes, cinq minutes.</p>
+    <ul class="puces"><li>Sur ordinateur</li><li>Dans Chrome</li></ul>
   </header>
 
   <ol class="etapes">
-    <li class="etape">
-      <h2>Prends ta clé</h2>
-      <p>FruitRadar s'ouvre avec une clé. Elle s'affiche à la fin de l'inscription&nbsp;: copie-la, tu la colleras à la dernière étape.</p>
-      <div class="choix">
-        <a class="cle" href="https://buy.polar.sh/polar_cl_oUi3a7FydGbvOaXw7R8b09yAt7IH9IfvYhL6y2M8viR" target="_blank" rel="noopener">
-          <b>Essayer le Radar</b>
-          <span>Gratuit pendant 3 jours, sans carte. Le Radar seulement.</span>
-        </a>
+    <li class="panneau etape">
+      <span class="num" aria-hidden="true">1</span>
+      <div><h2>Prends ta clé</h2><p>Elle s'affiche à la fin. Copie-la.</p></div>
+      <div class="suite choix">
         <a class="cle vive" href="https://buy.polar.sh/polar_cl_qgL746bmymmkgcSGiQnK5bUpZzRVdF3JwBjfA1csj8f" target="_blank" rel="noopener">
-          <b>S'abonner, 25,99&nbsp;€ par mois</b>
-          <span>Le Radar et l'automatisation des vidéos. Tu arrêtes quand tu veux.</span>
+          <b>S'abonner</b><i>25,99&nbsp;€ / mois</i>
+          <span>Le Radar et les vidéos automatiques.</span>
+        </a>
+        <a class="cle" href="https://buy.polar.sh/polar_cl_oUi3a7FydGbvOaXw7R8b09yAt7IH9IfvYhL6y2M8viR" target="_blank" rel="noopener">
+          <b>Essayer le Radar</b><i>Gratuit</i>
+          <span>3 jours, sans carte. Le Radar seulement.</span>
         </a>
       </div>
     </li>
 
-    <li class="etape">
-      <h2>Télécharge le dossier</h2>
-      <p>Dézippe-le à un endroit où il restera, par exemple dans <strong>Documents</strong>. Évite Téléchargements si tu le vides souvent&nbsp;: Chrome lit FruitRadar depuis ce dossier.</p>
-      <a class="bouton" href="https://github.com/timotheehml-bot/maj/raw/main/FruitRadar-vente.zip">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>
-        Télécharger FruitRadar
-      </a>
+    <li class="panneau etape">
+      <span class="num" aria-hidden="true">2</span>
+      <div><h2>Télécharge le dossier</h2><p>Dézippe-le dans <strong>Documents</strong>.</p></div>
+      <div class="suite">
+        <a class="appel" href="https://github.com/timotheehml-bot/maj/raw/main/FruitRadar-vente.zip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>
+          Télécharger FruitRadar
+        </a>
+      </div>
     </li>
 
-    <li class="etape">
-      <h2>Charge-le dans Chrome</h2>
-      <p>Chrome n'ouvre pas cette adresse depuis un lien&nbsp;: copie-la et colle-la dans la barre d'adresse.</p>
-      <div class="adresse"><code id="adr">chrome://extensions</code><button class="copier" type="button" data-copie="adr">Copier l'adresse</button></div>
-      <ul>
-        <li>Active le <strong>Mode développeur</strong>, en haut à droite.</li>
-        <li>Clique sur <strong>Charger l'extension non empaquetée</strong>.</li>
-        <li>Choisis le dossier que tu viens de dézipper.</li>
-      </ul>
+    <li class="panneau etape">
+      <span class="num" aria-hidden="true">3</span>
+      <div><h2>Ajoute-le à Chrome</h2><p>Colle cette adresse dans Chrome&nbsp;: <strong id="adr">chrome://extensions</strong></p></div>
+      <div class="suite">
+        <button class="appel" type="button" data-copie="adr">Copier l'adresse</button>
+        <ol class="gestes">
+          <li>Active «&nbsp;Mode développeur&nbsp;», en haut à droite</li>
+          <li>Clique «&nbsp;Charger l'extension non empaquetée&nbsp;»</li>
+          <li>Choisis le dossier dézippé</li>
+        </ol>
+      </div>
     </li>
 
-    <li class="etape">
-      <h2>Colle ta clé</h2>
-      <p>Clique sur l'icône FruitRadar, à droite de la barre d'adresse (derrière la pièce de puzzle si elle n'est pas épinglée). L'écran <strong>Entre ta clé FruitRadar</strong> s'ouvre&nbsp;: colle la clé, puis <strong>Activer FruitRadar</strong>.</p>
-    </li>
-
-    <li class="etape">
-      <h2>Avant ta première vidéo</h2>
-      <p>Avec l'abonnement, FruitRadar travaille dans tes propres comptes. Connecte-toi dans ce Chrome à Claude, ChatGPT, Grok, CapCut, VideoTranscriber et TikTok.</p>
-      <ul>
-        <li>Dans FruitRadar&nbsp;: <strong>Automatisation</strong>, «&nbsp;Connexions aux sites&nbsp;», <strong>Tout tester</strong>. Chaque site doit passer au vert.</li>
-        <li>Le guide complet est dans le menu de gauche, bouton <strong>Guide</strong>.</li>
-      </ul>
+    <li class="panneau etape">
+      <span class="num" aria-hidden="true">4</span>
+      <div><h2>Colle ta clé</h2><p>Ouvre FruitRadar, colle la clé, clique «&nbsp;Activer&nbsp;». C'est prêt.</p></div>
     </li>
   </ol>
 
-  <div class="asavoir">
-    <p><b>Une clé, un ordinateur.</b> Pour changer d'ordinateur&nbsp;: onglet Support, «&nbsp;Ma licence&nbsp;», «&nbsp;Retirer la clé de cet ordinateur&nbsp;», puis colle-la sur le nouveau.</p>
-    <p><b>Les mises à jour</b> arrivent dans FruitRadar&nbsp;: un bouton «&nbsp;Mise à jour&nbsp;» apparaît en bas du menu.</p>
-    <p><b>Un souci&nbsp;?</b> Onglet Support de FruitRadar, ou le lien «&nbsp;Un souci avec ta clé&nbsp;?&nbsp;» sur l'écran de la clé.</p>
-  </div>
+  <ul class="infos">
+    <li><b>1 clé, 1 ordinateur</b>Tu peux la déplacer depuis l'onglet Support.</li>
+    <li><b>Mises à jour</b>Un bouton apparaît dans FruitRadar.</li>
+    <li><b>Pour les vidéos</b>Tes comptes Claude, ChatGPT, Grok et CapCut.</li>
+  </ul>
 
-  <p class="pied">FruitRadar, une création de Timothée Hamel. © 2026 Timothée Hamel. Tous droits réservés.</p>
+  <p class="pied">Une création de <strong>Timothée Hamel</strong>. © 2026, tous droits réservés.</p>
 </main>
 <script>
-  // « Copier l'adresse » : Chrome refuse d'ouvrir chrome://extensions depuis une page web, on la met donc dans le presse-papiers.
+  // Chrome refuse d'ouvrir chrome://extensions depuis une page web : on met l'adresse dans le presse-papiers.
   document.addEventListener('click', async (e) => {
     const b = e.target.closest('[data-copie]'); if (!b) return;
-    const t = document.getElementById(b.dataset.copie).textContent;
-    let ok = false;
-    try { await navigator.clipboard.writeText(t); ok = true; } catch (err) {
-      const r = document.createRange(); r.selectNodeContents(document.getElementById(b.dataset.copie));
-      const s = getSelection(); s.removeAllRanges(); s.addRange(r);
+    const el = document.getElementById(b.dataset.copie); let ok = false;
+    try { await navigator.clipboard.writeText(el.textContent); ok = true; } catch (err) {
+      const r = document.createRange(); r.selectNodeContents(el); const s = getSelection(); s.removeAllRanges(); s.addRange(r);
       try { ok = document.execCommand('copy'); } catch (e2) { ok = false; }
     }
-    b.textContent = ok ? 'Adresse copiée' : 'Sélectionnée : Ctrl + C';
+    b.textContent = ok ? 'Adresse copiée, colle-la dans Chrome' : 'Sélectionnée : fais Ctrl + C';
     b.setAttribute('data-fait', '');
-    setTimeout(() => { b.textContent = 'Copier l\'adresse'; b.removeAttribute('data-fait'); }, 2600);
+    setTimeout(() => { b.textContent = 'Copier l\'adresse'; b.removeAttribute('data-fait'); }, 3000);
   });
 </script>
 </body>
