@@ -7,9 +7,12 @@
 <meta name="robots" content="noindex">
 <meta name="description" content="Installer FruitRadar dans Chrome en quatre étapes.">
 <title>Installer FruitRadar</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Lexend:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
+  /* polices servies par le site lui-même (licence SIL OFL) : aucune requête vers un service tiers */
+  @font-face { font-family: "Bricolage Grotesque"; font-style: normal; font-display: swap; font-weight: 200 800; src: url("f-bricolage-latin.woff2") format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+  @font-face { font-family: "Bricolage Grotesque"; font-style: normal; font-display: swap; font-weight: 200 800; src: url("f-bricolage-latin-ext.woff2") format("woff2"); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+  @font-face { font-family: "Lexend"; font-style: normal; font-display: swap; font-weight: 100 900; src: url("f-lexend-latin.woff2") format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+  @font-face { font-family: "Lexend"; font-style: normal; font-display: swap; font-weight: 100 900; src: url("f-lexend-latin-ext.woff2") format("woff2"); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
   /* Page d'installation, dans la même direction que la page d'accueil : le mur de scènes qui défile en fond, des panneaux sombres
      presque opaques, la mangue pour ce qui se clique. Quatre étapes, un gros numéro, une phrase et une action par étape. */
   :root {
@@ -80,8 +83,12 @@
   .infos b { display: block; margin-bottom: 4px; font: 800 1rem/1.2 var(--titre); color: var(--creme); }
   @media (max-width: 420px) { .infos { grid-template-columns: 1fr; } }
 
+  .cgv { font-size: .85rem; color: var(--brume); text-align: center; }
+  .cgv a { color: var(--mangue); text-underline-offset: 3px; }
   .contact { text-align: center; padding: 14px 16px; border-radius: 18px; background: rgba(24, 13, 34, .9); border: 1px solid var(--trait); font-weight: 500; }
   .contact a { color: var(--mangue); text-underline-offset: 3px; }
+  .liens { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 16px; font-size: .85rem; }
+  .liens a { color: var(--creme); text-underline-offset: 3px; }
   .pied { text-align: center; font-size: .8rem; color: var(--brume); padding-top: 4px; }
   .pied strong { color: var(--creme); }
   @media (prefers-reduced-motion: reduce) { .col { animation: none; } .cle, .appel { transition: none; } }
@@ -111,6 +118,7 @@
           <b>Essayer le Radar</b><i>Gratuit</i>
           <span>3 jours, sans carte. Le Radar seulement.</span>
         </a>
+        <p class="cgv">Sans engagement&nbsp;: tu arrêtes quand tu veux. <a href="conditions.html">Conditions générales</a></p>
       </div>
     </li>
 
@@ -151,7 +159,8 @@
   </ul>
 
   <p class="contact">Un souci&nbsp;? <a href="mailto:contact@fruitradar.fr">contact@fruitradar.fr</a></p>
-  <p class="pied">Une création de <strong>Timothée Hamel</strong>. © 2026, tous droits réservés.</p>
+  <nav class="liens" aria-label="Pages légales"><a href="conditions.html">Conditions générales</a> <a href="confidentialite.html">Confidentialité</a> <a href="utilisation.html">Utilisation acceptable</a> <a href="conditions.html#editeur">Mentions légales</a></nav>
+  <p class="pied">Une création de <strong>Timothée Hamel</strong>. © 2026, tous droits réservés. FruitRadar est un produit indépendant. Il n'est ni affilié ni approuvé par Anthropic (Claude), OpenAI (ChatGPT), xAI (Grok), ByteDance (TikTok, CapCut), Google (Gemini) ou les autres services cités. Ces noms sont des marques de leurs propriétaires.</p>
 </main>
 <script>
   // Chrome refuse d'ouvrir chrome://extensions depuis une page web : on met l'adresse dans le presse-papiers.
