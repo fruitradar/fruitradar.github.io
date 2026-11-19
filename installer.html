@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#150b1d">
+<meta name="robots" content="noindex">
+<meta name="description" content="Installer FruitRadar dans Chrome : la clé, le téléchargement, le chargement de l'extension.">
+<title>Installer FruitRadar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Lexend:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* Page d'installation. Même nuit, même crème et même mangue que la page d'accueil. Une seule colonne : les étapes se suivent,
+     chacune sur son panneau, avec son numéro dans la marge. Les deux boutons de la clé sont les seules surfaces vives. */
+  :root {
+    --nuit: #150b1d;
+    --prune: #231530;
+    --creme: #f7efe8;
+    --brume: rgba(247, 239, 232, .74);
+    --trait: rgba(255, 255, 255, .13);
+    --mangue: #ffb21f;
+    --encre: #24130a;
+    --titre: "Bricolage Grotesque", "Trebuchet MS", system-ui, sans-serif;
+    --corps: "Lexend", system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; min-height: 100vh; min-height: 100dvh; background: radial-gradient(120% 60% at 50% 0%, #2a1638 0%, var(--nuit) 62%) fixed var(--nuit); color: var(--creme); font: 400 1rem/1.6 var(--corps); }
+  p, h1, h2, ol, ul { margin: 0; }
+  ol, ul { padding: 0; list-style: none; }
+  a { color: inherit; }
+  button { font: inherit; color: inherit; }
+  :focus-visible { outline: 3px solid var(--mangue); outline-offset: 3px; border-radius: 8px; }
+
+  .page { width: 100%; max-width: 640px; margin: 0 auto; padding: 28px 16px 44px; display: grid; gap: 18px; }
+  .retour { justify-self: start; font-size: .92rem; color: var(--brume); text-underline-offset: 3px; }
+  .retour:hover { color: var(--creme); }
+
+  .tete { padding: 10px 4px 6px; }
+  .tete h1 { font: 800 clamp(2.2rem, 9vw, 3.1rem)/1.02 var(--titre); letter-spacing: -.03em; }
+  .tete p { margin-top: 10px; color: var(--brume); max-width: 46ch; }
+
+  .etapes { display: grid; gap: 14px; counter-reset: etape; }
+  .etape { position: relative; counter-increment: etape; background: rgba(24, 13, 34, .9); border: 1px solid var(--trait); border-radius: 22px; padding: 20px 18px 20px 68px; }
+  .etape::before { content: counter(etape); position: absolute; left: 18px; top: 18px; width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; background: var(--prune); border: 1px solid var(--trait); font: 700 1.05rem/1 var(--titre); color: var(--mangue); }
+  .etape h2 { font: 700 1.3rem/1.2 var(--titre); letter-spacing: -.01em; }
+  .etape > p { margin-top: 8px; color: var(--brume); max-width: 58ch; }
+  .etape > p strong, .etape li strong { color: var(--creme); font-weight: 600; }
+  .etape ul { margin-top: 10px; display: grid; gap: 8px; color: var(--brume); }
+  .etape ul li { padding-left: 18px; position: relative; max-width: 58ch; }
+  .etape ul li::before { content: ""; position: absolute; left: 2px; top: .68em; width: 6px; height: 6px; border-radius: 50%; background: var(--mangue); opacity: .85; }
+
+  /* les deux clés */
+  .choix { margin-top: 14px; display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+  .cle { display: grid; gap: 4px; align-content: start; padding: 14px 16px 15px; border-radius: 16px; text-decoration: none; border: 1px solid var(--trait); background: var(--prune); transition: transform .15s ease, border-color .15s ease; }
+  .cle b { font: 700 1.08rem/1.25 var(--titre); }
+  .cle span { font-size: .9rem; line-height: 1.45; color: var(--brume); }
+  .cle:hover { transform: translateY(-2px); border-color: rgba(255, 255, 255, .3); }
+  .cle.vive { background: var(--mangue); border-color: var(--mangue); color: var(--encre); }
+  .cle.vive span { color: rgba(36, 19, 10, .78); }
+
+  .bouton { display: inline-flex; align-items: center; gap: 8px; margin-top: 14px; padding: 12px 18px; border-radius: 14px; background: var(--creme); color: var(--encre); font-weight: 600; text-decoration: none; border: 0; cursor: pointer; transition: transform .15s ease; }
+  .bouton:hover { transform: translateY(-2px); }
+  .bouton svg { width: 18px; height: 18px; }
+
+  .adresse { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  .adresse code { font: 500 .95rem/1 ui-monospace, "Cascadia Mono", Menlo, monospace; padding: 10px 12px; border-radius: 10px; background: #0e0714; border: 1px solid var(--trait); color: var(--creme); }
+  .copier { padding: 9px 13px; border-radius: 10px; background: transparent; border: 1px solid var(--trait); cursor: pointer; font-size: .9rem; }
+  .copier:hover { border-color: rgba(255, 255, 255, .34); }
+  .copier[data-fait] { border-color: var(--mangue); color: var(--mangue); }
+
+  .asavoir { padding: 4px 6px 0; display: grid; gap: 8px; color: var(--brume); font-size: .93rem; }
+  .asavoir b { color: var(--creme); font-weight: 600; }
+  .pied { padding: 10px 6px 0; font-size: .85rem; color: var(--brume); }
+
+  @media (max-width: 480px) {
+    .etape { padding: 62px 16px 18px 16px; }
+    .etape::before { left: 16px; top: 16px; }
+  }
+  @media (prefers-reduced-motion: reduce) { .cle, .bouton { transition: none; } .cle:hover, .bouton:hover { transform: none; } }
+</style>
+</head>
+<body>
+<main class="page">
+  <a class="retour" href="./">Retour à FruitRadar</a>
+
+  <header class="tete">
+    <h1>Installer FruitRadar</h1>
+    <p>Sur ordinateur, dans Chrome. Compte cinq minutes, et garde cette page ouverte à côté.</p>
+  </header>
+
+  <ol class="etapes">
+    <li class="etape">
+      <h2>Prends ta clé</h2>
+      <p>FruitRadar s'ouvre avec une clé. Elle s'affiche à la fin de l'inscription&nbsp;: copie-la, tu la colleras à la dernière étape.</p>
+      <div class="choix">
+        <a class="cle" href="https://buy.polar.sh/polar_cl_oUi3a7FydGbvOaXw7R8b09yAt7IH9IfvYhL6y2M8viR" target="_blank" rel="noopener">
+          <b>Essayer le Radar</b>
+          <span>Gratuit pendant 3 jours, sans carte. Le Radar seulement.</span>
+        </a>
+        <a class="cle vive" href="https://buy.polar.sh/polar_cl_qgL746bmymmkgcSGiQnK5bUpZzRVdF3JwBjfA1csj8f" target="_blank" rel="noopener">
+          <b>S'abonner, 25,99&nbsp;€ par mois</b>
+          <span>Le Radar et l'automatisation des vidéos. Tu arrêtes quand tu veux.</span>
+        </a>
+      </div>
+    </li>
+
+    <li class="etape">
+      <h2>Télécharge le dossier</h2>
+      <p>Dézippe-le à un endroit où il restera, par exemple dans <strong>Documents</strong>. Évite Téléchargements si tu le vides souvent&nbsp;: Chrome lit FruitRadar depuis ce dossier.</p>
+      <a class="bouton" href="https://github.com/timotheehml-bot/maj/raw/main/FruitRadar-vente.zip">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>
+        Télécharger FruitRadar
+      </a>
+    </li>
+
+    <li class="etape">
+      <h2>Charge-le dans Chrome</h2>
+      <p>Chrome n'ouvre pas cette adresse depuis un lien&nbsp;: copie-la et colle-la dans la barre d'adresse.</p>
+      <div class="adresse"><code id="adr">chrome://extensions</code><button class="copier" type="button" data-copie="adr">Copier l'adresse</button></div>
+      <ul>
+        <li>Active le <strong>Mode développeur</strong>, en haut à droite.</li>
+        <li>Clique sur <strong>Charger l'extension non empaquetée</strong>.</li>
+        <li>Choisis le dossier que tu viens de dézipper.</li>
+      </ul>
+    </li>
+
+    <li class="etape">
+      <h2>Colle ta clé</h2>
+      <p>Clique sur l'icône FruitRadar, à droite de la barre d'adresse (derrière la pièce de puzzle si elle n'est pas épinglée). L'écran <strong>Entre ta clé FruitRadar</strong> s'ouvre&nbsp;: colle la clé, puis <strong>Activer FruitRadar</strong>.</p>
+    </li>
+
+    <li class="etape">
+      <h2>Avant ta première vidéo</h2>
+      <p>Avec l'abonnement, FruitRadar travaille dans tes propres comptes. Connecte-toi dans ce Chrome à Claude, ChatGPT, Grok, CapCut, VideoTranscriber et TikTok.</p>
+      <ul>
+        <li>Dans FruitRadar&nbsp;: <strong>Automatisation</strong>, «&nbsp;Connexions aux sites&nbsp;», <strong>Tout tester</strong>. Chaque site doit passer au vert.</li>
+        <li>Le guide complet est dans le menu de gauche, bouton <strong>Guide</strong>.</li>
+      </ul>
+    </li>
+  </ol>
+
+  <div class="asavoir">
+    <p><b>Une clé, un ordinateur.</b> Pour changer d'ordinateur&nbsp;: onglet Support, «&nbsp;Ma licence&nbsp;», «&nbsp;Retirer la clé de cet ordinateur&nbsp;», puis colle-la sur le nouveau.</p>
+    <p><b>Les mises à jour</b> arrivent dans FruitRadar&nbsp;: un bouton «&nbsp;Mise à jour&nbsp;» apparaît en bas du menu.</p>
+    <p><b>Un souci&nbsp;?</b> Onglet Support de FruitRadar, ou le lien «&nbsp;Un souci avec ta clé&nbsp;?&nbsp;» sur l'écran de la clé.</p>
+  </div>
+
+  <p class="pied">FruitRadar, une création de Timothée Hamel. © 2026 Timothée Hamel. Tous droits réservés.</p>
+</main>
+<script>
+  // « Copier l'adresse » : Chrome refuse d'ouvrir chrome://extensions depuis une page web, on la met donc dans le presse-papiers.
+  document.addEventListener('click', async (e) => {
+    const b = e.target.closest('[data-copie]'); if (!b) return;
+    const t = document.getElementById(b.dataset.copie).textContent;
+    let ok = false;
+    try { await navigator.clipboard.writeText(t); ok = true; } catch (err) {
+      const r = document.createRange(); r.selectNodeContents(document.getElementById(b.dataset.copie));
+      const s = getSelection(); s.removeAllRanges(); s.addRange(r);
+      try { ok = document.execCommand('copy'); } catch (e2) { ok = false; }
+    }
+    b.textContent = ok ? 'Adresse copiée' : 'Sélectionnée : Ctrl + C';
+    b.setAttribute('data-fait', '');
+    setTimeout(() => { b.textContent = 'Copier l\'adresse'; b.removeAttribute('data-fait'); }, 2600);
+  });
+</script>
+</body>
+</html>
