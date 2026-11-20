@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#150b1d">
-<title>Politique d'utilisation acceptable · FruitRadar</title>
+<title>Politique d’utilisation acceptable · FruitRadar</title>
 <style>
   /* polices servies par le site lui-même (licence SIL OFL) : aucune requête vers un service tiers */
   @font-face { font-family: "Bricolage Grotesque"; font-style: normal; font-display: swap; font-weight: 200 800; src: url("f-bricolage-latin.woff2") format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
@@ -12,96 +12,183 @@
   @font-face { font-family: "Lexend"; font-style: normal; font-display: swap; font-weight: 100 900; src: url("f-lexend-latin.woff2") format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
   @font-face { font-family: "Lexend"; font-style: normal; font-display: swap; font-weight: 100 900; src: url("f-lexend-latin-ext.woff2") format("woff2"); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
   :root {
-    --nuit: #150b1d; --prune: #231530; --creme: #f7efe8; --brume: rgba(247, 239, 232, .8); --trait: rgba(255, 255, 255, .14);
-    --mangue: #ffb21f; --encre: #24130a;
+    --nuit: #150b1d; --prune: #231530; --mangue: #ffb21f; --creme: #f7efe8;
+    --fond: #f4f2f6; --papier: #ffffff; --encre: #231530; --texte: #3b3045; --doux: #6d6378; --trait: #e6e1eb; --lien: #5b2b86;
     --titre: "Bricolage Grotesque", "Trebuchet MS", system-ui, sans-serif;
     --corps: "Lexend", system-ui, -apple-system, "Segoe UI", sans-serif;
   }
   *, *::before, *::after { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; scroll-padding-top: 16px; }
-  body { margin: 0; min-height: 100vh; background: radial-gradient(120% 60% at 50% 0%, #2a1638 0%, var(--nuit) 62%) fixed var(--nuit); color: var(--creme); font: 400 1rem/1.65 var(--corps); }
-  h1, h2, p, ul { margin: 0; }
-  a { color: var(--mangue); text-underline-offset: 3px; }
-  :focus-visible { outline: 3px solid #fff; outline-offset: 3px; border-radius: 6px; }
-  .page { width: 100%; max-width: 760px; margin: 0 auto; padding: 22px 16px 40px; display: grid; gap: 16px; }
-  .retour { justify-self: start; font-size: .9rem; color: var(--brume); }
-  .tete { padding: 8px 4px 2px; }
-  .tete h1 { font: 800 clamp(2rem, 7.5vw, 2.8rem)/1.05 var(--titre); letter-spacing: -.03em; }
-  .tete h1 small { display: block; margin-top: 6px; font: 500 1rem/1.3 var(--corps); letter-spacing: 0; color: var(--brume); }
-  .tete p { margin-top: 10px; color: var(--brume); font-size: .92rem; }
-  .onglets { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; list-style: none; }
-  .onglets a { display: inline-block; padding: 8px 14px; border-radius: 999px; border: 1px solid var(--trait); background: rgba(255, 255, 255, .06); color: var(--creme); text-decoration: none; font-size: .9rem; font-weight: 500; }
-  .onglets a[aria-current] { background: var(--mangue); border-color: var(--mangue); color: var(--encre); }
-  .texte { background: rgba(24, 13, 34, .92); border: 1px solid var(--trait); border-radius: 24px; padding: 26px 22px; display: grid; gap: 26px; }
-  .texte section { display: grid; gap: 10px; }
-  .texte h2 { font: 700 1.3rem/1.25 var(--titre); letter-spacing: -.01em; }
-  .texte p, .texte li { color: rgba(247, 239, 232, .9); max-width: 68ch; }
-  .texte ul { padding-left: 1.15em; display: grid; gap: 6px; }
-  .texte li::marker { color: var(--mangue); }
-  .texte strong { color: var(--creme); font-weight: 600; }
-  .encart { padding: 14px 16px; border-radius: 16px; background: rgba(255, 178, 31, .1); border: 1px solid rgba(255, 178, 31, .35); }
-  .pied { padding: 6px 4px 0; display: grid; gap: 8px; font-size: .8rem; color: var(--brume); }
-  @media (max-width: 480px) { .texte { padding: 22px 16px; } }
+  html { -webkit-text-size-adjust: 100%; scroll-padding-top: 24px; }
+  @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+  body { margin: 0; background: var(--fond); color: var(--texte); font: 400 1rem/1.72 var(--corps); }
+  h1, h2, p, ul, ol, dl, dd { margin: 0; }
+  a { color: var(--lien); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  a:hover { text-decoration-color: var(--mangue); text-decoration-thickness: 2px; }
+  :focus-visible { outline: 3px solid var(--prune); outline-offset: 3px; border-radius: 4px; }
+  .saut { position: absolute; left: 12px; top: -80px; padding: 8px 14px; background: var(--papier); color: var(--encre); border-radius: 6px; z-index: 10; }
+  .saut:focus { top: 10px; }
+
+  .barre { background: var(--nuit); }
+  .barre-in { max-width: 1120px; margin: 0 auto; padding: 0 24px; height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .marque { font: 700 1.15rem/1 var(--titre); letter-spacing: -.02em; color: var(--creme); text-decoration: none; }
+  .barre a { color: rgba(247, 239, 232, .86); font-size: .9rem; }
+  .barre :focus-visible { outline-color: var(--creme); }
+
+  .cadre { max-width: 1120px; margin: 0 auto; padding: 0 24px 56px; }
+  .docs { display: flex; gap: 28px; border-bottom: 1px solid var(--trait); overflow-x: auto; scrollbar-width: none; }
+  .docs a { padding: 16px 0 12px; color: var(--doux); text-decoration: none; font-size: .92rem; font-weight: 500; white-space: nowrap; border-bottom: 3px solid transparent; margin-bottom: -1px; }
+  .docs a:hover { color: var(--encre); }
+  .docs a[aria-current] { color: var(--encre); border-bottom-color: var(--mangue); }
+
+  .tete { padding: 40px 0 30px; max-width: 780px; }
+  .tete h1 { font: 750 clamp(1.8rem, 3.6vw, 2.5rem)/1.12 var(--titre); letter-spacing: -.025em; color: var(--encre); }
+  .meta { display: flex; flex-wrap: wrap; gap: 4px 22px; margin-top: 12px; color: var(--doux); font-size: .88rem; }
+  .intro { margin-top: 14px; font-size: 1.05rem; max-width: 62ch; }
+
+  .corps { display: grid; grid-template-columns: 236px minmax(0, 1fr); gap: 48px; align-items: start; }
+  .sommaire { position: sticky; top: 24px; font-size: .86rem; }
+  .sommaire-titre { font-weight: 600; color: var(--encre); margin-bottom: 10px; }
+  .sommaire ol, .sommaire-mobile ol { list-style: none; padding: 0; }
+  .sommaire ol { display: grid; gap: 1px; border-left: 1px solid var(--trait); }
+  .sommaire a, .sommaire-mobile a { display: grid; grid-template-columns: 1.7em 1fr; color: var(--texte); text-decoration: none; line-height: 1.35; }
+  .sommaire a { padding: 5px 0 5px 14px; margin-left: -1px; border-left: 2px solid transparent; }
+  .sommaire a:hover { color: var(--encre); border-left-color: var(--mangue); }
+  .num { font-variant-numeric: tabular-nums; color: var(--doux); }
+  .sommaire-mobile { display: none; }
+  .zone { display: grid; gap: 16px; min-width: 0; }
+
+  .doc { background: var(--papier); border: 1px solid var(--trait); border-radius: 14px; padding: 40px 48px 34px; display: grid; gap: 34px; }
+  .doc section { display: grid; gap: 12px; }
+  .doc h2 { display: grid; grid-template-columns: 2rem 1fr; align-items: baseline; font: 700 1.18rem/1.3 var(--titre); letter-spacing: -.01em; color: var(--encre); }
+  .doc h2 .num { font: 600 .95rem/1 var(--corps); }
+  .doc section > :not(h2) { margin-left: 2rem; }
+  .doc p, .doc li { max-width: 66ch; }
+  .doc ul { padding-left: 1.1em; display: grid; gap: 8px; }
+  .doc li::marker { color: #d18a00; }
+  .doc strong { color: var(--encre); font-weight: 600; }
+  .bref { background: #fff8ea; border-left: 3px solid var(--mangue); border-radius: 0 10px 10px 0; padding: 18px 22px; display: grid; gap: 8px; }
+  .bref-titre { font: 700 1rem/1.3 var(--titre); color: var(--encre); }
+  .bref .note { font-size: .82rem; color: var(--doux); }
+  .encart { padding: 14px 18px; border-radius: 10px; background: #fff8ea; border: 1px solid #f1d493; }
+
+  .mentions { padding-top: 22px; border-top: 1px solid var(--trait); font-size: .8125rem; line-height: 1.6; color: var(--doux); }
+  .doc .mentions > * { margin-left: 0; }
+  .doc .mentions h2 { display: block; font: 650 .92rem/1.3 var(--titre); }
+  .mentions dl { display: grid; grid-template-columns: max-content 1fr; gap: 4px 18px; }
+  .mentions dt { color: var(--texte); }
+
+  .pied { max-width: 1120px; margin: 0 auto; padding: 26px 24px 44px; background: linear-gradient(var(--trait), var(--trait)) top center / calc(100% - 48px) 1px no-repeat; display: grid; gap: 10px; font-size: .8rem; color: var(--doux); }
+  .pied ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 6px 22px; }
+  .pied ul a { color: var(--texte); }
+
+  @media (max-width: 900px) {
+    .corps { grid-template-columns: 1fr; gap: 0; }
+    .sommaire { display: none; }
+    .sommaire-mobile { display: block; background: var(--papier); border: 1px solid var(--trait); border-radius: 12px; padding: 12px 16px; font-size: .92rem; }
+    .sommaire-mobile summary { cursor: pointer; font-weight: 600; color: var(--encre); }
+    .sommaire-mobile ol { padding: 10px 0 4px; display: grid; gap: 7px; }
+    .doc { padding: 28px 20px 26px; gap: 30px; border-radius: 12px; }
+    .doc section > :not(h2) { margin-left: 0; }
+    .doc h2 { grid-template-columns: 1.8rem 1fr; }
+    .tete { padding: 28px 0 22px; }
+  }
+  @media (max-width: 520px) {
+    .cadre, .barre-in, .pied { padding-left: 16px; padding-right: 16px; }
+    .pied { background-size: calc(100% - 32px) 1px; }
+    .long { display: none; }
+    .docs { gap: 20px; }
+    .mentions dl { grid-template-columns: 1fr; gap: 0; }
+    .mentions dd { margin-bottom: 6px; }
+  }
 </style>
 </head>
 <body>
-<main class="page">
-  <a class="retour" href="./">Retour à FruitRadar</a>
+<a class="saut" href="#texte">Aller au texte</a>
+<header class="barre"><div class="barre-in"><a class="marque" href="./">FruitRadar</a><a href="./">Retour au site</a></div></header>
+<div class="cadre">
+  <nav class="docs" aria-label="Documents légaux"><a href="conditions.html">Conditions</a><a href="confidentialite.html">Confidentialité</a><a href="utilisation.html" aria-current="page">Utilisation<span class="long"> acceptable</span></a></nav>
   <header class="tete">
-    <h1>Politique d'utilisation acceptable<small>Acceptable Use Policy</small></h1>
-    <p>Dernière mise à jour&nbsp;: 19 novembre 2026. Ce que tu peux créer avec FruitRadar, et ce qui est interdit.</p>
+    <h1>Politique d’utilisation acceptable</h1>
+    <p class="meta"><span lang="en">Acceptable Use Policy</span><span>Mise à jour le 20 novembre 2026</span></p>
+    <p class="intro">Ce que tu peux créer avec FruitRadar, et ce qui est interdit.</p>
   </header>
-  <nav aria-label="Pages légales"><ul class="onglets"><li><a href="conditions.html">Conditions</a></li><li><a href="confidentialite.html">Confidentialité</a></li><li><a href="utilisation.html" aria-current="page">Utilisation acceptable</a></li></ul></nav>
-  <article class="texte">
-    <section id="regle">
-      <h2>1. La règle</h2>
-      <p>FruitRadar sert à créer des histoires animées tout public avec des personnages fruits. Ces règles s'appliquent à tout ce que tu crées, prépares ou publies avec lui, en plus des règles des services utilisés (TikTok, Claude, ChatGPT, Grok, CapCut, Gemini).</p>
-    </section>
-    <section id="interdit">
-      <h2>2. Ce qui est interdit</h2>
+  <div class="corps">
+    <nav class="sommaire" aria-label="Sommaire">
+      <p class="sommaire-titre">Sommaire</p>
+      <ol>
+          <li><a href="#regle"><span class="num">1</span><span>La règle</span></a></li>
+          <li><a href="#interdit"><span class="num">2</span><span>Ce qui est interdit</span></a></li>
+          <li><a href="#tiers"><span class="num">3</span><span>Les règles des autres services</span></a></li>
+          <li><a href="#fonctionnement"><span class="num">4</span><span>Ce que fait FruitRadar</span></a></li>
+          <li><a href="#sanctions"><span class="num">5</span><span>En cas de non-respect</span></a></li>
+          <li><a href="#signaler"><span class="num">6</span><span>Signaler un abus</span></a></li>
+      </ol>
+    </nav>
+    <main id="texte" class="zone">
+      <details class="sommaire-mobile"><summary>Sommaire</summary>
+        <ol>
+          <li><a href="#regle"><span class="num">1</span><span>La règle</span></a></li>
+          <li><a href="#interdit"><span class="num">2</span><span>Ce qui est interdit</span></a></li>
+          <li><a href="#tiers"><span class="num">3</span><span>Les règles des autres services</span></a></li>
+          <li><a href="#fonctionnement"><span class="num">4</span><span>Ce que fait FruitRadar</span></a></li>
+          <li><a href="#sanctions"><span class="num">5</span><span>En cas de non-respect</span></a></li>
+          <li><a href="#signaler"><span class="num">6</span><span>Signaler un abus</span></a></li>
+        </ol>
+      </details>
+      <article class="doc">
+        <section id="regle">
+          <h2><span class="num">1</span><span>La règle</span></h2>
+      <p>FruitRadar sert à créer des histoires animées tout public avec des personnages fruits. Ces règles s’appliquent à tout ce que tu crées, prépares ou publies avec lui, en plus des règles des services utilisés (TikTok, Claude, ChatGPT, Grok, CapCut, Gemini).</p>
+        </section>
+        <section id="interdit">
+          <h2><span class="num">2</span><span>Ce qui est interdit</span></h2>
       <div class="encart"><p><strong>Tout contenu sexuel, érotique, suggestif ou dénudé est interdit</strong>, quel que soit le personnage, fruits compris. Tout contenu qui sexualise ou met en danger un mineur est interdit et signalé aux autorités.</p></div>
       <ul>
-        <li>La violence réaliste ou gore, l'automutilation, les actes dangereux montrés pour être imités.</li>
+        <li>La violence réaliste ou gore, l’automutilation, les actes dangereux montrés pour être imités.</li>
         <li>La haine, le harcèlement, les menaces, la discrimination.</li>
-        <li>Les deepfakes&nbsp;: imiter le visage, la voix ou le nom d'une personne réelle, ou une marque, sans autorisation.</li>
-        <li>La désinformation&nbsp;: présenter comme vraies de fausses informations sur la santé, la politique ou l'actualité.</li>
+        <li>Les deepfakes&nbsp;: imiter le visage, la voix ou le nom d’une personne réelle, ou une marque, sans autorisation.</li>
+        <li>La désinformation&nbsp;: présenter comme vraies de fausses informations sur la santé, la politique ou l’actualité.</li>
         <li>Reprendre des œuvres, des personnages ou des musiques protégés sans en avoir les droits.</li>
         <li>Le spam et le faux engagement&nbsp;: publier en masse des vidéos identiques, créer des comptes en série, acheter ou automatiser des likes, des commentaires ou des abonnés.</li>
         <li>Tout contenu illégal.</li>
       </ul>
-    </section>
-    <section id="tiers">
-      <h2>3. Les règles des autres services</h2>
+        </section>
+        <section id="tiers">
+          <h2><span class="num">3</span><span>Les règles des autres services</span></h2>
       <ul>
-        <li>Respecte les conditions et la modération de chaque service utilisé. N'essaie pas de les contourner.</li>
-        <li>Sur TikTok, respecte les règles de la communauté, dont l'étiquetage des contenus générés par IA.</li>
+        <li>Respecte les conditions et la modération de chaque service utilisé. N’essaie pas de les contourner.</li>
+        <li>Sur TikTok, respecte les règles de la communauté, dont l’étiquetage des contenus générés par IA.</li>
       </ul>
-    </section>
-    <section id="fonctionnement">
-      <h2>4. Ce que fait FruitRadar</h2>
+        </section>
+        <section id="fonctionnement">
+          <h2><span class="num">4</span><span>Ce que fait FruitRadar</span></h2>
       <ul>
-        <li>Il n'aime, ne commente, ne suit et n'écrit à personne.</li>
-        <li>Par défaut, il s'arrête sur la page de publication de TikTok&nbsp;: c'est toi qui publies.</li>
-        <li>Si un service refuse un prompt, FruitRadar le réécrit en version plus douce (sans violence et sans rien de suggestif), deux fois au plus, puis s'arrête et te laisse corriger. Il ne cherche jamais à faire passer le contenu refusé tel quel.</li>
+        <li>Il n’aime, ne commente, ne suit et n’écrit à personne.</li>
+        <li>Par défaut, il s’arrête sur la page de publication de TikTok&nbsp;: c’est toi qui publies.</li>
+        <li>Si un service refuse un prompt, FruitRadar le réécrit en version plus douce (sans violence et sans rien de suggestif), deux fois au plus, puis s’arrête et te laisse corriger. Il ne cherche jamais à faire passer le contenu refusé tel quel.</li>
       </ul>
-    </section>
-    <section id="sanctions">
-      <h2>5. En cas de non-respect</h2>
+        </section>
+        <section id="sanctions">
+          <h2><span class="num">5</span><span>En cas de non-respect</span></h2>
       <ul>
         <li>Je peux suspendre ou retirer ta clé, sans remboursement pour un manquement grave.</li>
         <li>Les contenus illégaux sont signalés aux autorités compétentes.</li>
       </ul>
-    </section>
-    <section id="signaler">
-      <h2>6. Signaler un abus</h2>
+        </section>
+        <section id="signaler">
+          <h2><span class="num">6</span><span>Signaler un abus</span></h2>
       <p>Tu as vu une vidéo faite avec FruitRadar qui enfreint ces règles&nbsp;? Écris à <a href="mailto:contact@fruitradar.fr">contact@fruitradar.fr</a> avec le lien.</p>
-    </section>
-  </article>
-  <footer class="pied">
-    <p>Une question&nbsp;? <a href="mailto:contact@fruitradar.fr">contact@fruitradar.fr</a></p>
-    <p>FruitRadar est un produit indépendant. Il n'est ni affilié ni approuvé par Anthropic (Claude), OpenAI (ChatGPT), xAI (Grok), ByteDance (TikTok, CapCut), Google (Gemini) ou les autres services cités. Ces noms sont des marques de leurs propriétaires.</p>
-    <p>© 2026 Timothée Hamel. Tous droits réservés.</p>
-  </footer>
-</main>
+        </section>
+
+      </article>
+    </main>
+  </div>
+</div>
+<footer class="pied">
+  <nav aria-label="Liens légaux"><ul><li><a href="conditions.html">Conditions</a></li><li><a href="confidentialite.html">Confidentialité</a></li><li><a href="utilisation.html">Utilisation acceptable</a></li><li><a href="conditions.html#mentions">Mentions légales</a></li></ul></nav>
+  <p>Une question&nbsp;? <a href="mailto:contact@fruitradar.fr">contact@fruitradar.fr</a></p>
+  <p>FruitRadar est un produit indépendant. Il n’est ni affilié ni approuvé par Anthropic (Claude), OpenAI (ChatGPT), xAI (Grok), ByteDance (TikTok, CapCut), Google (Gemini) ou les autres services cités. Ces noms sont des marques de leurs propriétaires.</p>
+  <p>© 2026 Timothée Hamel. Tous droits réservés.</p>
+</footer>
 </body>
 </html>
