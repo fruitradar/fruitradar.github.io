@@ -62,20 +62,27 @@
 
   /* ----- l'accroche ----- */
   .dit { text-align: center; }
-  .accroche { font: 700 clamp(1.5rem, 6.6vw, 1.85rem)/1.16 var(--titre); letter-spacing: -.02em; text-wrap: balance; }
-  .texte { margin: 12px auto 0; color: var(--creme); opacity: .9; font-size: 1.02rem; line-height: 1.5; max-width: 36ch; text-wrap: pretty; }
+  .accroche { font: 700 clamp(1.4rem, 6.1vw, 1.85rem)/1.16 var(--titre); letter-spacing: -.02em; text-wrap: balance; }
+  .texte { margin: 10px auto 0; color: var(--creme); opacity: .9; font-size: .94rem; line-height: 1.5; max-width: 36ch; text-wrap: pretty; }
 
-  .chiffres { margin-top: 18px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+  .etapes { width: fit-content; max-width: 100%; margin: 14px auto 0; padding: 0; list-style: none; counter-reset: etape; display: grid; gap: 7px; text-align: left; }
+  .etapes li { counter-increment: etape; position: relative; min-height: 22px; padding-left: 31px; font-size: .86rem; line-height: 1.45; color: var(--creme); text-wrap: pretty; }
+  .etapes li::before { content: counter(etape); position: absolute; left: 0; top: -1px; width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center; background: rgba(255, 178, 31, .13); border: 1px solid rgba(255, 178, 31, .42); color: var(--mangue); font: 800 .74rem/1 var(--titre); }
+  .etapes b { font-weight: 600; color: #fff; }
+  .chiffres { margin-top: 16px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
   .chiffres li { padding: 11px 4px 10px; border-radius: 14px; background: rgba(255, 255, 255, .06); border: 1px solid var(--trait); font-size: .74rem; line-height: 1.25; color: var(--creme); opacity: .95; text-align: center; }
   .chiffres b { display: block; margin-bottom: 3px; font: 800 1.32rem/1.1 var(--titre); letter-spacing: -.02em; color: var(--mangue); white-space: nowrap; }
+  .releve { margin-top: 10px; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: .74rem; line-height: 1.35; color: var(--brume); }
+  .releve i { flex: 0 0 6px; width: 6px; height: 6px; border-radius: 50%; background: var(--mangue); box-shadow: 0 0 0 3px rgba(255, 178, 31, .18); }
   .appel { display: block; margin-top: 14px; padding: 14px 18px; border-radius: 14px; background: var(--mangue); color: var(--encre); font-weight: 600; text-align: center; text-decoration: none; transition: transform .2s, filter .2s; }
   .appel:hover { filter: brightness(1.06); transform: translateY(-1px); }
   .appel:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
 
   /* ----- les preuves : trois miniatures avec leurs vues, et la capture des récompenses ----- */
   .affiches { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
-  .affiches figure { border-radius: 16px; overflow: hidden; border: 1px solid var(--trait); background: #1c1026; box-shadow: 0 20px 40px -26px rgba(0, 0, 0, .9); }
+  .affiches figure { position: relative; border-radius: 16px; overflow: hidden; border: 1px solid var(--trait); background: #1c1026; box-shadow: 0 20px 40px -26px rgba(0, 0, 0, .9); }
   .affiches img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; }
+  .affiches img.arrive { position: absolute; top: 0; left: 0; animation: neuf .7s ease both; }
   .affiches figcaption { padding: 8px 4px 10px; text-align: center; font-size: .76rem; line-height: 1.2; color: var(--brume); }
   .affiches figcaption b { display: block; font: 800 1.3rem/1.1 var(--titre); letter-spacing: -.02em; color: var(--creme); }
   .gains { margin-top: 12px; border-radius: 18px; overflow: hidden; border: 1px solid var(--trait); background: #fff; box-shadow: 0 20px 40px -26px rgba(0, 0, 0, .9); }
@@ -90,6 +97,10 @@
 
   /* ----- les captures à faire défiler ----- */
   .demo h2, .preuves h2 { font: 700 1.2rem/1.2 var(--titre); letter-spacing: -.01em; text-align: center; text-wrap: balance; margin-bottom: 14px; }
+  .preuves h2 small { display: block; margin-top: 5px; font: 500 .88rem/1.3 var(--corps); letter-spacing: 0; color: var(--brume); }
+  /* chiffre ou miniature qui vient d'arriver du serveur : un fondu court, rien de plus */
+  .neuf { animation: neuf .7s ease both; }
+  @keyframes neuf { from { opacity: .12; } }
   .defile { position: relative; display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; -webkit-overflow-scrolling: touch; margin: 0 -16px; padding: 4px 16px 6px; scroll-padding: 0 16px; overscroll-behavior-x: contain; }
   .defile::-webkit-scrollbar { display: none; }
   .defile:focus-visible { outline: 2px solid var(--mangue); outline-offset: 2px; border-radius: 20px; }
@@ -166,9 +177,12 @@
     .affiche h1 { font-size: 3.6rem; }
     .dit { text-align: left; }
     .accroche { font-size: 2.05rem; }
-    .texte { margin-inline: 0; max-width: 40ch; }
+    .texte { margin-inline: 0; max-width: 40ch; font-size: 1rem; }
+    .etapes { margin-left: 0; }
+    .etapes li { font-size: .9rem; }
     .demo h2, .preuves h2 { text-align: left; }
     .preuves-note { text-align: left; }
+    .releve { justify-content: flex-start; }
     .defile { margin: 0 -16px; padding: 4px 16px 6px; scroll-padding: 0 16px; }
     .vue { flex-basis: 78%; }
   }
@@ -176,6 +190,7 @@
     .col { animation: none; }
     html { scroll-behavior: auto; }
     .cadre, .points button::before { transition: none; }
+    .neuf, .affiches img.arrive { animation: none; }
   }
 </style>
 </head>
@@ -190,17 +205,23 @@
 
   <section class="dit panneau">
     <p class="accroche">Des millions de vues, en automatique.</p>
-    <p class="texte">Tu lances la vidéo, FruitRadar fait tout le reste. Elle arrive prête à publier dans TikTok, sans que tu interviennes.</p>
+    <p class="texte">FruitRadar est une extension Chrome qui crée tes vidéos TikTok de fruits IA, de l'idée à la publication.</p>
+    <ol class="etapes">
+      <li><b>Il repère</b> les vidéos de fruits IA qui percent.</li>
+      <li><b>Il fabrique la tienne</b> : histoire, images, clips, montage.</li>
+      <li><b>Tu publies</b> : elle t'attend, prête, dans TikTok.</li>
+    </ol>
     <ul class="chiffres" aria-label="Mes chiffres sur TikTok">
-      <li><b>73,7 K</b>abonnés TikTok</li>
-      <li><b>5,5 M</b>vues sur 3 vidéos</li>
-      <li><b>2,4 M</b>vues sur une vidéo</li>
+      <li><b data-v="abonnes">73,7 K</b>abonnés TikTok</li>
+      <li><b data-v="trois">5,5 M</b>vues sur 3 vidéos</li>
+      <li><b data-v="record">2,4 M</b>vues sur une vidéo</li>
     </ul>
+    <p class="releve"><i aria-hidden="true"></i><span data-v="releve">Chiffres de mon compte TikTok, relevés en novembre.</span></p>
     <a class="appel" href="#prix">Voir l'offre FruitRadar</a>
   </section>
 
   <section class="preuves panneau">
-    <h2>Trois de mes vidéos, 5,5 millions de vues</h2>
+    <h2><span data-v="titre-top">Trois de mes vidéos</span><small data-v="trois-long">5,5 millions de vues à elles trois</small></h2>
     <div class="affiches">
       <figure><img src="preuve-1.jpg" width="540" height="720" alt="Miniature de ma vidéo « Le Secret de Grenadina, partie 1 », 2 millions de vues sur TikTok."><figcaption><b>2 M</b>de vues</figcaption></figure>
       <figure><img src="preuve-2.jpg" width="540" height="720" alt="Miniature de ma vidéo « Le Secret de Grenadina, partie 2 », 2,4 millions de vues sur TikTok."><figcaption><b>2,4 M</b>de vues</figcaption></figure>
@@ -212,7 +233,7 @@
   <a class="cadre skool" href="https://www.skool.com/aicashfactory/about?ref=79fb98e86c4f4f8faab48283db5ac9ee" target="_blank" rel="noopener sponsored">
     <span class="sk-haut"><strong>AI Cash Factory</strong><small>skool.com/aicashfactory</small></span>
     <span class="sk-texte">Apprends à faire comme moi. C'est la communauté où ça se passe, sur Skool.</span>
-    <span class="sk-chiffres"><span><b>+800</b>Membres</span><span><b>5,0 ★</b>20 avis</span><span><b>29 $</b>par mois</span></span>
+    <span class="sk-chiffres"><span><b data-v="sk-membres">+800</b>Membres</span><span><b data-v="sk-note">5,0 ★</b>20 avis</span><span><b data-v="sk-prix">29 $</b>par mois</span></span>
     <span class="bouton">Rejoindre la communauté</span>
     <svg class="va" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
   </a>
@@ -220,8 +241,9 @@
   <section class="demo panneau">
     <h2>Ce que fait FruitRadar</h2>
     <dl class="deux">
-      <div><dt>Le scan</dt><dd>Le Radar parcourt TikTok, repère les vidéos de fruits IA qui percent et leur donne une note sur 100. Tu sais quoi refaire.</dd></div>
+      <div><dt>Le Radar</dt><dd>Le Radar parcourt TikTok, repère les vidéos de fruits IA qui percent et leur donne une note sur 100. Tu sais quoi refaire.</dd></div>
       <div><dt>L'automatisation</dt><dd>Tu choisis une vidéo ou une idée et tu cliques une fois. Script, images, clips, montage, publication : tout s'enchaîne, et tu peux tout régler.</dd></div>
+      <div><dt>Ce qu'il te faut</dt><dd>Un ordinateur avec Google Chrome, et tes comptes Claude, ChatGPT, Grok et CapCut. FruitRadar s'en sert à ta place, dans ton navigateur.</dd></div>
     </dl>
     <div class="defile" id="defile" tabindex="0" role="group" aria-label="Captures de FruitRadar, à faire défiler">
       <figure class="vue">
@@ -278,6 +300,82 @@
   </footer>
 </main>
 
+<script>
+/* Chiffres en direct : mes abonnés, mes 3 vidéos les plus vues (miniatures et vues), ma meilleure vidéo, et la carte Skool.
+   Le serveur FruitRadar les tient à jour. S'il ne répond pas, la page garde les chiffres écrits plus haut. */
+(function () {
+  var SERVEUR = 'https://fruitradar-serveur.pages.dev';
+  if (!window.fetch || !window.Promise) return;
+  var calme = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function el(k) { return document.querySelector('[data-v="' + k + '"]'); }
+  function nombre(n) { return typeof n === 'number' && isFinite(n) && n >= 0; }
+  function un(x) { return (Math.floor(x * 10) / 10).toLocaleString('fr-FR', { maximumFractionDigits: 1 }); } // arrondi vers le bas : jamais plus que la réalité
+  function court(n) { return n >= 1e6 ? un(n / 1e6) + '\u00a0M' : n >= 1e3 ? un(n / 1e3) + '\u00a0K' : String(Math.floor(n)); }
+  function enLettres(n) { return n >= 1e6 ? un(n / 1e6) + (n >= 2e6 ? ' millions' : ' million') + ' de vues' : Math.floor(n).toLocaleString('fr-FR') + ' vues'; }
+  function depuis(t) {
+    var s = Math.max(0, (Date.now() - t) / 1000), f = window.Intl && Intl.RelativeTimeFormat ? new Intl.RelativeTimeFormat('fr', { numeric: 'auto' }) : null;
+    if (s < 90) return 'à l\'instant';
+    if (f && s < 3600) return f.format(-Math.round(s / 60), 'minute');
+    if (f && s < 86400) return f.format(-Math.round(s / 3600), 'hour');
+    if (f && s < 6 * 86400) return f.format(-Math.round(s / 86400), 'day');
+    return 'le ' + new Date(t).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long' });
+  }
+  function poser(e, txt) {
+    if (!e || e.textContent === txt) return;
+    e.textContent = txt;
+    if (!calme) { e.classList.remove('neuf'); void e.offsetWidth; e.classList.add('neuf'); }
+  }
+  function libelle(b, txt) { var n = b && b.nextSibling; if (n && n.nodeType === 3 && n.nodeValue !== txt) n.nodeValue = txt; }
+  function charger(src) {
+    return new Promise(function (ok, ko) {
+      var i = new Image();
+      i.onload = function () { (i.decode ? i.decode() : Promise.resolve()).then(function () { ok(i); }, function () { ok(i); }); };
+      i.onerror = ko; i.src = src;
+    });
+  }
+  function remplacer(fig, t) { // la nouvelle miniature se pose en fondu sur l'ancienne, sans bouger la mise en page
+    var vieille = fig.querySelector('img'), img = vieille.cloneNode(false);
+    img.src = t.image;
+    img.alt = 'Miniature de ma vidéo' + (t.titre ? ' « ' + t.titre + ' »' : '') + ', ' + enLettres(t.vues) + ' sur TikTok.';
+    if (calme) { vieille.replaceWith(img); return; }
+    img.classList.add('arrive');
+    img.addEventListener('animationend', function () { img.classList.remove('arrive'); if (vieille.parentNode) vieille.remove(); }, { once: true });
+    vieille.after(img);
+  }
+  function tiktok(d) {
+    if (!nombre(d.maj_le)) return;
+    if (nombre(d.abonnes)) poser(el('abonnes'), court(d.abonnes));
+    if (nombre(d.record)) poser(el('record'), court(d.record));
+    poser(el('releve'), 'Chiffres de mon compte TikTok, relevés ' + depuis(d.maj_le) + '.');
+    var figs = document.querySelectorAll('.affiches figure'), top = Array.isArray(d.top) ? d.top : [];
+    var complet = top.length === figs.length && top.every(function (t) { return t && typeof t.image === 'string' && /^https:\/\//.test(t.image) && nombre(t.vues); });
+    if (!complet) return; // une miniature manque : on garde les trois vidéos d'avant, avec leurs chiffres
+    Promise.all(top.map(function (t) { return charger(t.image); })).then(function () {
+      var somme = 0;
+      top.forEach(function (t, i) { remplacer(figs[i], t); poser(figs[i].querySelector('figcaption b'), court(t.vues)); somme += t.vues; });
+      poser(el('trois'), court(somme));
+      poser(el('titre-top'), 'Mes trois vidéos les plus vues');
+      poser(el('trois-long'), enLettres(somme) + ' à elles trois');
+    }, function () { /* une miniature ne s'affiche pas : on garde l'affichage d'avant */ });
+  }
+  function skool(s) {
+    if (!s || !nombre(s.membres) || s.membres < 1) return;
+    poser(el('sk-membres'), Math.floor(s.membres).toLocaleString('fr-FR'));
+    if (nombre(s.note) && s.note <= 5) poser(el('sk-note'), s.note.toLocaleString('fr-FR', { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + ' ★');
+    if (nombre(s.avis)) libelle(el('sk-note'), Math.floor(s.avis) + ' avis');
+    var sym = { usd: '$', eur: '€', gbp: '£' }[s.devise];
+    if (nombre(s.prix) && sym) {
+      poser(el('sk-prix'), (s.prix % 1 ? s.prix.toLocaleString('fr-FR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) : String(s.prix)) + ' ' + sym);
+      if (s.periode === 'month' || s.periode === 'year') libelle(el('sk-prix'), s.periode === 'year' ? 'par an' : 'par mois');
+    }
+  }
+  var ctl = window.AbortController ? new AbortController() : null, minuterie = setTimeout(function () { if (ctl) ctl.abort(); }, 8000);
+  fetch(SERVEUR + '/vitrine', { credentials: 'omit', signal: ctl ? ctl.signal : undefined })
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (d) { clearTimeout(minuterie); if (!d || !d.ok) return; tiktok(d); skool(d.skool); })
+    .catch(function () { /* serveur muet : les chiffres écrits dans la page restent */ });
+})();
+</script>
 <script>
 (function () {
   var d = document.getElementById('defile'); if (!d) return;
