@@ -1,0 +1,137 @@
+/* FruitRadar, style « Prime time » des pages d'installation, d'essai et de clé perdue.
+   Mêmes couleurs, mêmes polices et même mur d'affiches que la page d'accueil, voile plus dense : ici on lit et on agit. */
+@font-face { font-family: "Bodoni Moda"; font-style: normal; font-display: swap; font-weight: 400 900; src: url("f-bodoni-latin.woff2") format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+@font-face { font-family: "Bodoni Moda"; font-style: italic; font-display: swap; font-weight: 400 900; src: url("f-bodoni-italique-latin.woff2") format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+@font-face { font-family: "Albert Sans"; font-style: normal; font-display: swap; font-weight: 100 900; src: url("f-albert-latin.woff2") format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+
+:root {
+  --nuit: #0d1626;
+  --nuit-2: #16223a;
+  --rubis: #c8243f;
+  --rubis-2: #ad1d36;
+  --or: #f2c46d;
+  --ivoire: #f6eee4;
+  --brume: #a9b3c7;
+  --brume-2: #c5cbd8;
+  --filet: rgba(242, 196, 109, .34);
+  --trait: rgba(246, 238, 228, .14);
+  --carte: rgba(13, 22, 38, .86);
+  --affiche: "Bodoni Moda", "Bodoni 72", Didot, Georgia, serif;
+  --texte: "Albert Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; min-height: 100vh; background: var(--nuit); color: var(--ivoire); font: 400 1rem/1.55 var(--texte); overflow-x: clip; -webkit-font-smoothing: antialiased; }
+img { display: block; max-width: 100%; height: auto; }
+h1, h2, p, figure, ul, ol { margin: 0; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--or); outline-offset: 3px; }
+[hidden] { display: none !important; }
+
+/* le mur d'affiches, à l'arrêt derrière un voile épais */
+.fond { position: fixed; inset: 0; z-index: -1; overflow: hidden; background: var(--nuit); }
+.mur { position: absolute; inset: -18% -30%; display: flex; gap: 14px; justify-content: center; transform: rotate(-6deg); }
+.col { flex: 0 0 clamp(118px, 30vw, 176px); align-self: flex-start; display: flex; flex-direction: column; animation: monte 110s linear infinite; }
+.col img { width: 100%; height: auto; }
+.col:nth-child(even) { animation-name: descend; animation-duration: 124s; }
+.col:nth-child(4n+1) { animation-delay: -20s; }
+.col:nth-child(4n+2) { animation-delay: -47s; }
+.col:nth-child(4n+3) { animation-delay: -9s; }
+.col:nth-child(4n) { animation-delay: -63s; }
+@keyframes monte { from { transform: translateY(0); } to { transform: translateY(-50%); } }
+@keyframes descend { from { transform: translateY(-50%); } to { transform: translateY(0); } }
+.fond::after { content: ""; position: absolute; inset: 0; background-image: radial-gradient(ellipse 110% 80% at 50% 38%, rgba(13, 22, 38, 0) 35%, rgba(13, 22, 38, .6) 100%), linear-gradient(rgba(13, 22, 38, .9), rgba(13, 22, 38, .9)); }
+@media (max-width: 700px) { .col:nth-child(n+7) { display: none; } }
+
+/* l'en-tête : la marque et le retour */
+.tete { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 14px 18px 14px 20px; }
+.marque { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
+.marque svg { flex: none; width: 30px; height: 30px; }
+.marque span { font: italic 600 1.375rem/1 var(--affiche); }
+.retour { padding: 9px 15px; border: 1px solid rgba(246, 238, 228, .36); border-radius: 999px; font-size: .8125rem; font-weight: 600; text-decoration: none; white-space: nowrap; transition: background .2s, color .2s; }
+.retour:hover { background: var(--ivoire); color: var(--nuit); }
+
+.page { max-width: 600px; margin: 0 auto; padding: 4px 18px 44px; display: grid; gap: 18px; }
+.titre-page { padding: 22px 6px 10px; text-align: center; }
+.titre-page h1 { font: italic 600 clamp(2.6rem, 12vw, 3.6rem)/1.02 var(--affiche); font-variation-settings: "opsz" 44; letter-spacing: -.01em; text-wrap: balance; }
+.titre-page p { margin-top: 12px; font-size: 1.0625rem; color: var(--brume-2); }
+.puces { list-style: none; padding: 0; margin-top: 16px; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+.puces li { padding: 5px 14px; border-radius: 999px; border: 1px solid var(--filet); color: var(--or); font-size: .8125rem; font-weight: 600; }
+
+.carte { padding: 24px 20px; border-radius: 16px; background: var(--carte); border: 1px solid var(--trait); box-shadow: 0 30px 60px -40px rgba(0, 0, 0, .95); }
+.carte h2 { font: italic 600 1.6rem/1.15 var(--affiche); }
+
+/* les étapes */
+.etapes { list-style: none; padding: 0; display: grid; gap: 16px; }
+.etape { display: grid; grid-template-columns: 40px minmax(0, 1fr); column-gap: 14px; }
+.num { font: 700 2.5rem/1 var(--affiche); font-variation-settings: "opsz" 36; color: var(--or); text-align: center; }
+.etape h2 { padding-top: 2px; }
+.etape h2 + p { margin-top: 6px; color: var(--brume-2); }
+.etape strong { color: var(--ivoire); font-weight: 600; }
+.suite { grid-column: 1 / -1; margin-top: 18px; }
+
+.choix { display: grid; gap: 10px; }
+.cle { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 12px; align-items: center; padding: 16px 20px; border-radius: 14px; border: 1px solid rgba(246, 238, 228, .3); text-decoration: none; transition: background .2s, border-color .2s; }
+.cle b { font-size: 1.125rem; font-weight: 700; }
+.cle i { grid-row: 1 / span 2; grid-column: 2; font: 700 1.25rem/1 var(--affiche); font-variation-settings: "opsz" 20; white-space: nowrap; }
+.cle span { grid-column: 1; font-size: .875rem; color: var(--brume-2); }
+.cle:hover { border-color: var(--ivoire); background: rgba(246, 238, 228, .06); }
+.cle.vive { background: var(--rubis); border-color: var(--rubis); color: #fff; box-shadow: 0 16px 30px -18px rgba(200, 36, 63, .9); }
+.cle.vive span { color: rgba(255, 255, 255, .86); }
+.cle.vive:hover { background: var(--rubis-2); border-color: var(--rubis-2); }
+.cgv { font-size: .8125rem; color: var(--brume); text-align: center; }
+.cgv a, .note a, .contact a, .resultat a { color: var(--or); text-underline-offset: 3px; }
+
+.bouton { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 16px 20px; border: 0; border-radius: 999px; background: var(--ivoire); color: var(--nuit); font: 700 1rem/1.2 var(--texte); text-align: center; text-decoration: none; cursor: pointer; transition: background .2s; }
+.bouton:hover { background: #fff; }
+.bouton svg { flex: none; width: 20px; height: 20px; }
+.bouton[data-fait] { background: var(--or); }
+.bouton.rubis { background: var(--rubis); color: #fff; box-shadow: 0 16px 30px -18px rgba(200, 36, 63, .9); }
+.bouton.rubis:hover { background: var(--rubis-2); }
+.bouton[disabled] { opacity: .6; cursor: wait; }
+
+.gestes { list-style: none; padding: 0; margin-top: 14px; display: grid; gap: 8px; counter-reset: g; }
+.gestes li { counter-increment: g; display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 12px; align-items: center; padding: 10px 14px; border-radius: 12px; border: 1px solid var(--trait); background: rgba(246, 238, 228, .04); font-size: .9375rem; font-weight: 500; }
+.gestes li::before { content: counter(g); width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; border: 1px solid var(--filet); color: var(--or); font: 700 .95rem/1 var(--affiche); }
+
+.infos { list-style: none; padding: 0; display: grid; gap: 10px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.infos li { padding: 16px 12px; border-radius: 14px; background: var(--carte); border: 1px solid var(--trait); text-align: center; font-size: .8125rem; line-height: 1.4; color: var(--brume); }
+.infos b { display: block; margin-bottom: 5px; font: italic 600 1.08rem/1.2 var(--affiche); color: var(--ivoire); }
+@media (max-width: 460px) { .infos { grid-template-columns: 1fr; } }
+
+/* les formulaires (essai, clé perdue) */
+.form { display: grid; gap: 10px; margin-top: 16px; }
+.form label { font-size: .9375rem; font-weight: 600; }
+.form input { width: 100%; padding: 15px 18px; border-radius: 12px; border: 1px solid rgba(246, 238, 228, .3); background: rgba(246, 238, 228, .06); color: var(--ivoire); font: inherit; font-size: 1.0625rem; }
+.form input::placeholder { color: #8590a6; }
+.form input:focus-visible { outline: 2px solid var(--or); outline-offset: 2px; }
+.etat { min-height: 1.4em; font-weight: 600; }
+.etat.non { color: #ff9aa9; }
+.note { font-size: .875rem; color: var(--brume); }
+.resultat > p { margin-top: 10px; color: var(--brume-2); }
+.macle { display: block; margin: 16px 0; padding: 16px; border-radius: 12px; border: 1px dashed var(--filet); background: rgba(246, 238, 228, .05); color: var(--or); font: 700 1.2rem/1.35 ui-monospace, Consolas, monospace; letter-spacing: .04em; text-align: center; overflow-wrap: anywhere; user-select: all; }
+.resultat ol { margin-top: 16px; padding-left: 1.2em; display: grid; gap: 6px; color: var(--brume-2); }
+
+/* le bas de page */
+.contact { text-align: center; font-size: .9375rem; }
+.liens { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 18px; font-size: .8125rem; }
+.liens a { text-underline-offset: 3px; text-decoration-color: rgba(246, 238, 228, .4); }
+.liens a:hover { color: var(--or); }
+.pied { max-width: 70ch; margin: 0 auto; text-align: center; font-size: .75rem; line-height: 1.5; color: #8590a6; }
+.pied strong { color: var(--brume-2); font-weight: 600; }
+
+@media (min-width: 980px) {
+  .tete { height: 84px; padding: 0 56px; }
+  .marque { gap: 12px; }
+  .marque svg { width: 34px; height: 34px; }
+  .marque span { font-size: 1.625rem; }
+  .retour { padding: 11px 20px; font-size: .9375rem; }
+  .page { max-width: 640px; gap: 20px; }
+  .titre-page { padding-top: 10px; }
+  .titre-page h1 { font-size: 4rem; }
+  .carte { padding: 30px 30px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .col { animation: none; }
+  .cle, .bouton, .retour { transition: none; }
+}

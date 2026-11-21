@@ -3,21 +3,20 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#150b1d">
+<meta name="theme-color" content="#0d1626">
 <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <title>Politique de confidentialité · FruitRadar</title>
 <style>
   /* polices servies par le site lui-même (licence SIL OFL) : aucune requête vers un service tiers */
-  @font-face { font-family: "Bricolage Grotesque"; font-style: normal; font-display: swap; font-weight: 200 800; src: url("f-bricolage-latin.woff2") format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
-  @font-face { font-family: "Bricolage Grotesque"; font-style: normal; font-display: swap; font-weight: 200 800; src: url("f-bricolage-latin-ext.woff2") format("woff2"); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
-  @font-face { font-family: "Lexend"; font-style: normal; font-display: swap; font-weight: 100 900; src: url("f-lexend-latin.woff2") format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
-  @font-face { font-family: "Lexend"; font-style: normal; font-display: swap; font-weight: 100 900; src: url("f-lexend-latin-ext.woff2") format("woff2"); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+  @font-face { font-family: "Bodoni Moda"; font-style: normal; font-display: swap; font-weight: 400 900; src: url("f-bodoni-latin.woff2") format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+  @font-face { font-family: "Bodoni Moda"; font-style: italic; font-display: swap; font-weight: 400 900; src: url("f-bodoni-italique-latin.woff2") format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+  @font-face { font-family: "Albert Sans"; font-style: normal; font-display: swap; font-weight: 100 900; src: url("f-albert-latin.woff2") format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
   :root {
-    --nuit: #150b1d; --prune: #231530; --mangue: #ffb21f; --creme: #f7efe8;
-    --fond: #f4f2f6; --papier: #ffffff; --encre: #231530; --texte: #3b3045; --doux: #6d6378; --trait: #e6e1eb; --lien: #5b2b86;
-    --titre: "Bricolage Grotesque", "Trebuchet MS", system-ui, sans-serif;
-    --corps: "Lexend", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --nuit: #0d1626; --rubis: #c8243f; --or: #f2c46d; --ivoire: #f6eee4;
+    --fond: #f3ebe0; --papier: #fffcf7; --encre: #1c1622; --texte: #3a323d; --doux: #6b6270; --trait: #e4d8ca; --lien: #a3162f;
+    --titre: "Bodoni Moda", "Bodoni 72", Didot, Georgia, serif;
+    --corps: "Albert Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
   }
   *, *::before, *::after { box-sizing: border-box; }
   html { -webkit-text-size-adjust: 100%; scroll-padding-top: 24px; }
@@ -25,25 +24,27 @@
   body { margin: 0; background: var(--fond); color: var(--texte); font: 400 1rem/1.72 var(--corps); }
   h1, h2, p, ul, ol, dl, dd { margin: 0; }
   a { color: var(--lien); text-decoration-thickness: 1px; text-underline-offset: 3px; }
-  a:hover { text-decoration-color: var(--mangue); text-decoration-thickness: 2px; }
-  :focus-visible { outline: 3px solid var(--prune); outline-offset: 3px; border-radius: 4px; }
+  a:hover { text-decoration-color: var(--rubis); text-decoration-thickness: 2px; }
+  :focus-visible { outline: 3px solid var(--nuit); outline-offset: 3px; border-radius: 4px; }
   .saut { position: absolute; left: 12px; top: -80px; padding: 8px 14px; background: var(--papier); color: var(--encre); border-radius: 6px; z-index: 10; }
   .saut:focus { top: 10px; }
 
   .barre { background: var(--nuit); }
-  .barre-in { max-width: 1120px; margin: 0 auto; padding: 0 24px; height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-  .marque { font: 700 1.15rem/1 var(--titre); letter-spacing: -.02em; color: var(--creme); text-decoration: none; }
-  .barre a { color: rgba(247, 239, 232, .86); font-size: .9rem; }
-  .barre :focus-visible { outline-color: var(--creme); }
+  .barre-in { max-width: 1120px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .marque { display: inline-flex; align-items: center; gap: 10px; font: italic 600 1.35rem/1 var(--titre); color: var(--ivoire); text-decoration: none; }
+  .marque svg { flex: none; width: 28px; height: 28px; }
+  .barre a { color: rgba(246, 238, 228, .86); font-size: .9rem; }
+  .barre a.marque { color: var(--ivoire); font-size: 1.35rem; }
+  .barre :focus-visible { outline-color: var(--ivoire); }
 
   .cadre { max-width: 1120px; margin: 0 auto; padding: 0 24px 56px; }
   .docs { display: flex; gap: 28px; border-bottom: 1px solid var(--trait); overflow-x: auto; scrollbar-width: none; }
   .docs a { padding: 16px 0 12px; color: var(--doux); text-decoration: none; font-size: .92rem; font-weight: 500; white-space: nowrap; border-bottom: 3px solid transparent; margin-bottom: -1px; }
   .docs a:hover { color: var(--encre); }
-  .docs a[aria-current] { color: var(--encre); border-bottom-color: var(--mangue); }
+  .docs a[aria-current] { color: var(--encre); border-bottom-color: var(--rubis); }
 
   .tete { padding: 40px 0 30px; max-width: 780px; }
-  .tete h1 { font: 750 clamp(1.8rem, 3.6vw, 2.5rem)/1.12 var(--titre); letter-spacing: -.025em; color: var(--encre); }
+  .tete h1 { font: italic 600 clamp(2.1rem, 4.4vw, 3rem)/1.08 var(--titre); letter-spacing: -.01em; color: var(--encre); text-wrap: balance; }
   .meta { display: flex; flex-wrap: wrap; gap: 4px 22px; margin-top: 12px; color: var(--doux); font-size: .88rem; }
   .intro { margin-top: 14px; font-size: 1.05rem; max-width: 62ch; }
 
@@ -54,28 +55,28 @@
   .sommaire ol { display: grid; gap: 1px; border-left: 1px solid var(--trait); }
   .sommaire a, .sommaire-mobile a { display: grid; grid-template-columns: 1.7em 1fr; color: var(--texte); text-decoration: none; line-height: 1.35; }
   .sommaire a { padding: 5px 0 5px 14px; margin-left: -1px; border-left: 2px solid transparent; }
-  .sommaire a:hover { color: var(--encre); border-left-color: var(--mangue); }
+  .sommaire a:hover { color: var(--encre); border-left-color: var(--rubis); }
   .num { font-variant-numeric: tabular-nums; color: var(--doux); }
   .sommaire-mobile { display: none; }
   .zone { display: grid; gap: 16px; min-width: 0; }
 
   .doc { background: var(--papier); border: 1px solid var(--trait); border-radius: 14px; padding: 40px 48px 34px; display: grid; gap: 34px; }
   .doc section { display: grid; gap: 12px; }
-  .doc h2 { display: grid; grid-template-columns: 2rem 1fr; align-items: baseline; font: 700 1.18rem/1.3 var(--titre); letter-spacing: -.01em; color: var(--encre); }
-  .doc h2 .num { font: 600 .95rem/1 var(--corps); }
+  .doc h2 { display: grid; grid-template-columns: 2rem 1fr; align-items: baseline; font: italic 600 1.4rem/1.25 var(--titre); color: var(--encre); }
+  .doc h2 .num { font: 700 1rem/1 var(--titre); font-style: normal; color: var(--rubis); }
   .doc section > :not(h2) { margin-left: 2rem; }
   .doc p, .doc li { max-width: 66ch; }
   .doc ul { padding-left: 1.1em; display: grid; gap: 8px; }
-  .doc li::marker { color: #d18a00; }
+  .doc li::marker { color: var(--rubis); }
   .doc strong { color: var(--encre); font-weight: 600; }
-  .bref { background: #fff8ea; border-left: 3px solid var(--mangue); border-radius: 0 10px 10px 0; padding: 18px 22px; display: grid; gap: 8px; }
-  .bref-titre { font: 700 1rem/1.3 var(--titre); color: var(--encre); }
+  .bref { background: #faf1e3; border-left: 3px solid #d6a24a; border-radius: 0 10px 10px 0; padding: 18px 22px; display: grid; gap: 8px; }
+  .bref-titre { font: italic 600 1.15rem/1.3 var(--titre); color: var(--encre); }
   .bref .note { font-size: .82rem; color: var(--doux); }
-  .encart { padding: 14px 18px; border-radius: 10px; background: #fff8ea; border: 1px solid #f1d493; }
+  .encart { padding: 14px 18px; border-radius: 10px; background: #faf1e3; border: 1px solid #ebd2a0; }
 
   .mentions { padding-top: 22px; border-top: 1px solid var(--trait); font-size: .8125rem; line-height: 1.6; color: var(--doux); }
   .doc .mentions > * { margin-left: 0; }
-  .doc .mentions h2 { display: block; font: 650 .92rem/1.3 var(--titre); }
+  .doc .mentions h2 { display: block; font: italic 600 1.05rem/1.3 var(--titre); }
   .mentions dl { display: grid; grid-template-columns: max-content 1fr; gap: 4px 18px; }
   .mentions dt { color: var(--texte); }
 
@@ -106,7 +107,7 @@
 </head>
 <body>
 <a class="saut" href="#texte">Aller au texte</a>
-<header class="barre"><div class="barre-in"><a class="marque" href="./">FruitRadar</a><a href="./">Retour au site</a></div></header>
+<header class="barre"><div class="barre-in"><a class="marque" href="./"><svg viewBox="0 0 128 128" aria-hidden="true"><rect width="128" height="128" rx="28" fill="#ffb21e"/><circle cx="64" cy="66" r="40" fill="none" stroke="#2a1606" stroke-width="9"/><circle cx="64" cy="66" r="19" fill="none" stroke="#2a1606" stroke-width="9"/><circle cx="64" cy="66" r="7" fill="#2a1606"/><line x1="64" y1="66" x2="87.5" y2="42.5" stroke="#2a1606" stroke-width="7" stroke-linecap="round"/><path d="M71.5 23.5C71 14 79 8.6 92 9C90.5 18 83.5 24.5 71.5 23.5Z" fill="#5b9400"/></svg>FruitRadar</a><a href="./">Retour au site</a></div></header>
 <div class="cadre">
   <nav class="docs" aria-label="Documents légaux"><a href="conditions.html">Conditions</a><a href="confidentialite.html" aria-current="page">Confidentialité</a><a href="utilisation.html">Utilisation<span class="long"> acceptable</span></a></nav>
   <header class="tete">
