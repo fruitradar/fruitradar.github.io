@@ -46,25 +46,24 @@
 
   <section class="carte" id="demande">
     <h2>Reçois ta clé d'essai</h2>
-    <p class="explique">Elle active le Radar dans FruitRadar pendant 3 jours.</p>
+    <p class="explique">Elle active le Radar dans FruitRadar pendant 3 jours. Elle arrive par e-mail.</p>
     <form id="formEssai" class="form" novalidate>
       <label for="email">Ton e-mail</label>
       <input id="email" name="email" type="email" autocomplete="email" inputmode="email" required placeholder="toi@exemple.fr">
-      <button class="bouton rubis" type="submit" id="envoi">Obtenir ma clé d'essai</button>
+      <button class="bouton rubis" type="submit" id="envoi">Recevoir ma clé par e-mail</button>
       <p class="etat" id="etat" role="status"></p>
-      <p class="note">Une clé d'essai par adresse. Elle ouvre le Radar pendant 3 jours&nbsp;; les vidéos automatiques demandent l'abonnement. Ta clé t'est aussi envoyée par e-mail. Ton adresse sert seulement à ça&nbsp;: <a href="confidentialite.html">confidentialité</a>.</p>
+      <p class="note">Un essai par personne et par ordinateur. Il ouvre le Radar pendant 3 jours&nbsp;; les vidéos automatiques demandent l'abonnement. Les adresses jetables ne marchent pas. Ton adresse sert seulement à t'envoyer ta clé&nbsp;: <a href="confidentialite.html">confidentialité</a>.</p>
     </form>
   </section>
 
-  <section class="carte resultat" id="resultat" hidden>
-    <h2 id="titreCle">Voici ta clé d'essai</h2>
-    <p id="texteCle"></p>
-    <span class="macle" id="macle"></span>
-    <button class="bouton" type="button" id="copier">Copier la clé</button>
+  <section class="carte resultat" id="resultat" tabindex="-1" hidden>
+    <h2 id="titreCle">Regarde ta boîte mail</h2>
+    <p>On t'a écrit à <b id="ouCle"></b>. L'e-mail arrive en moins d'une minute&nbsp;: regarde aussi dans tes spams et l'onglet Promotions. Si cette adresse a déjà eu son essai, l'e-mail te le dit.</p>
     <ol>
       <li>Pas encore installé&nbsp;? <a href="installer.html">Installe FruitRadar</a>.</li>
-      <li>Ouvre FruitRadar et colle ta clé dans l'écran «&nbsp;Entre ta clé&nbsp;».</li>
+      <li>Ouvre FruitRadar et colle la clé de l'e-mail dans l'écran «&nbsp;Entre ta clé&nbsp;».</li>
     </ol>
+    <p class="note">Rien reçu au bout de quelques minutes&nbsp;? <a href="essai.html">Vérifie ton adresse</a>, ou écris-moi.</p>
   </section>
 
   <p class="contact"><a href="retrouver.html">Clé perdue&nbsp;?</a> · Un souci&nbsp;? <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=contact@fruitradar.fr" target="_blank" rel="noopener" title="Écrire avec Gmail">contact@fruitradar.fr</a></p>
@@ -75,25 +74,27 @@
   const SERVEUR = 'https://fruitradar-serveur.pages.dev';
   const $ = (id) => document.getElementById(id);
   const dire = (t, non) => { $('etat').textContent = t; $('etat').className = 'etat' + (non ? ' non' : ''); };
+  const ERREURS = {
+    email: 'Cette adresse n\'est pas valable.',
+    domaine: 'Cette adresse ne peut pas recevoir d\'e-mail : vérifie ce qui est écrit après le @.',
+    jetable: 'Les adresses jetables ne marchent pas pour l\'essai : utilise ta vraie adresse.',
+    limite: 'Cette connexion internet a déjà servi à 2 essais ce mois-ci. Si c\'est une erreur, écris-moi à contact@fruitradar.fr.',
+    panne: 'L\'envoi des e-mails est en panne pour l\'instant. Réessaie dans quelques minutes.'
+  };
   $('formEssai').addEventListener('submit', async (e) => {
     e.preventDefault();
     const email = $('email').value.trim();
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { dire('Écris une adresse e-mail valable.', true); return $('email').focus(); }
-    $('envoi').disabled = true; dire('Création de ta clé…');
+    $('envoi').disabled = true; dire('Envoi de ta clé…');
     try {
       const r = await fetch(SERVEUR + '/essai', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email }) });
-      const j = await r.json();
-      if (!r.ok || !j.ok) throw new Error(j.code === 'email' ? 'Cette adresse n\'est pas valable.' : 'La clé n\'a pas pu être créée. Réessaie dans une minute.');
-      const fin = new Date(j.expire_le).toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long' });
-      $('macle').textContent = j.cle;
-      if (j.fini) { $('titreCle').textContent = 'Ton essai est terminé'; $('texteCle').innerHTML = 'Cette adresse a déjà eu son essai, fini le ' + fin + '. Pour continuer : <a href="' + SERVEUR + '/acheter">abonne-toi</a>.'; $('macle').hidden = true; $('copier').hidden = true; }
-      else $('texteCle').textContent = (j.deja ? 'Tu as déjà demandé ton essai : c\'est la même clé. ' : '') + 'Elle marche jusqu\'au ' + fin + '. ' + (j.envoye ? 'On te l\'a aussi envoyée par e-mail (regarde dans tes spams si besoin).' : 'Garde-la bien.');
-      $('demande').hidden = true; $('resultat').hidden = false; $('titreCle').focus && $('resultat').scrollIntoView({ block: 'start' });
-    } catch (err) { dire(err.message && !/fetch/i.test(err.message) ? err.message : 'Serveur injoignable. Vérifie ta connexion et réessaie.', true); }
+      let j = null; try { j = await r.json(); } catch (x) { j = null; }
+      if (!j || !j.ok) throw new Error((j && ERREURS[j.code]) || 'La demande n\'est pas passée. Réessaie dans une minute.');
+      if (!j.envoye) throw new Error('L\'e-mail n\'est pas parti. Réessaie dans une minute.');
+      $('ouCle').textContent = email;
+      $('demande').hidden = true; $('resultat').hidden = false; $('resultat').focus(); $('resultat').scrollIntoView({ block: 'start' });
+    } catch (err) { dire(err.message && !/fetch|network/i.test(err.message) ? err.message : 'Serveur injoignable. Vérifie ta connexion et réessaie.', true); }
     $('envoi').disabled = false;
-  });
-  $('copier').addEventListener('click', async () => {
-    try { await navigator.clipboard.writeText($('macle').textContent); $('copier').textContent = 'Clé copiée'; } catch (e) { $('copier').textContent = 'Sélectionne la clé et fais Ctrl + C'; }
   });
 </script>
 </body>
