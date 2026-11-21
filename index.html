@@ -98,7 +98,7 @@
   .chiffres { margin: 44px 0 0; padding: 24px 0 20px; border-top: 1px solid var(--filet); border-bottom: 1px solid var(--filet); }
   .chiffres ul { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
   .chiffres li { font-size: .78rem; line-height: 1.35; color: var(--brume); }
-  .chiffres b { display: block; margin-bottom: 8px; font: 700 1.95rem/1 var(--affiche); font-variation-settings: "opsz" 20; color: var(--or); white-space: nowrap; }
+  .chiffres b { display: block; margin-bottom: 8px; font: 800 1.8rem/1 var(--texte); letter-spacing: -.025em; color: var(--or); white-space: nowrap; }
   .releve { margin-top: 18px; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: .78rem; line-height: 1.4; color: var(--brume); }
   .releve i { flex: none; width: 6px; height: 6px; border-radius: 50%; background: var(--rubis); box-shadow: 0 0 0 3px rgba(200, 36, 63, .22); }
 
@@ -122,7 +122,7 @@
   .affiches img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 4px; background: var(--nuit-2); box-shadow: 0 20px 40px -26px rgba(0, 0, 0, .9); }
   .affiches img.arrive { position: absolute; top: 0; left: 0; animation: neuf .7s ease both; }
   .affiches figcaption { margin-top: 10px; text-align: center; font-size: .75rem; line-height: 1.3; color: var(--brume); }
-  .affiches figcaption b { display: block; margin-bottom: 2px; font: 700 1.25rem/1.1 var(--affiche); font-variation-settings: "opsz" 20; color: var(--or); white-space: nowrap; }
+  .affiches figcaption b { display: block; margin-bottom: 3px; font: 800 1.2rem/1.1 var(--texte); letter-spacing: -.02em; color: var(--or); white-space: nowrap; }
   .note { margin-top: 18px; text-align: center; font-size: .78rem; color: var(--brume); }
   /* chiffre ou miniature qui vient d'arriver du serveur : un fondu court, rien de plus */
   .neuf { animation: neuf .7s ease both; }
@@ -153,7 +153,7 @@
   .skool h2 { font: italic 600 2rem/1.05 var(--affiche); }
   .skool-texte { margin-top: 10px; font-size: .9375rem; line-height: 1.55; color: #ead6dc; }
   .sk-chiffres { margin: 22px 0; padding-top: 18px; border-top: 1px solid rgba(242, 196, 109, .3); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; font-size: .78rem; line-height: 1.3; color: #e0b8c2; }
-  .sk-chiffres b { display: block; margin-bottom: 6px; font: 700 1.55rem/1 var(--affiche); font-variation-settings: "opsz" 20; color: var(--or); white-space: nowrap; }
+  .sk-chiffres b { display: block; margin-bottom: 7px; font: 800 1.5rem/1 var(--texte); letter-spacing: -.02em; color: var(--or); white-space: nowrap; }
   .sk-note::after { content: ""; display: inline-block; width: .6em; height: .6em; margin-left: .14em; vertical-align: .02em; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2.8l2.8 6 6.5.7-4.9 4.4 1.4 6.4L12 17l-5.8 3.3 1.4-6.4L2.7 9.5l6.5-.7z' fill='%23f2c46d'/%3E%3C/svg%3E") no-repeat center / contain; }
   .sk-bas { margin-top: auto; }
   .contour { display: block; padding: 15px; border-radius: 999px; border: 1px solid var(--or); color: var(--or); text-align: center; font-weight: 700; font-size: .9375rem; text-decoration: none; transition: background .2s, color .2s; }
@@ -162,7 +162,7 @@
   .prix { padding: 30px 24px 26px; border-radius: 16px; background: var(--ivoire); color: var(--encre); box-shadow: 0 30px 60px -36px rgba(0, 0, 0, .9); }
   .prix-nom { font-size: .8125rem; color: var(--encre-2); }
   .prix-montant { margin-top: 4px; display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 10px; }
-  .prix-montant b { font: 700 clamp(3.3rem, 15vw, 3.9rem)/1 var(--affiche); letter-spacing: -.02em; white-space: nowrap; }
+  .prix-montant b { font: 800 clamp(2.9rem, 13.5vw, 3.4rem)/1 var(--texte); letter-spacing: -.035em; white-space: nowrap; }
   .prix-montant span { font-size: .9375rem; color: var(--encre-2); }
   .prix ul { margin-top: 22px; padding-top: 18px; border-top: 1px solid #ddd0c4; display: grid; gap: 12px; }
   .prix li { display: grid; grid-template-columns: 18px 1fr; gap: 10px; font-size: .9375rem; line-height: 1.45; }
@@ -215,7 +215,7 @@
     .chiffres { margin-top: 56px; padding: 26px 0 0; border-bottom: 0; max-width: 540px; }
     .chiffres ul { gap: 20px; }
     .chiffres li { font-size: .875rem; }
-    .chiffres b { font-size: 2.4rem; }
+    .chiffres b { font-size: 2.25rem; }
     .releve { justify-content: flex-start; font-size: .84rem; }
 
     .section { max-width: 1100px; margin-top: 120px; }
@@ -227,7 +227,7 @@
     .credits dd { font-size: 1.6rem; }
     .affiches { max-width: 780px; margin: 30px auto 0; gap: 22px; }
     .affiches figcaption { font-size: .875rem; }
-    .affiches figcaption b { font-size: 1.75rem; }
+    .affiches figcaption b { font-size: 1.6rem; }
     .defile { margin: 34px 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px; overflow: visible; }
     .defile-bas { display: none; }
 
@@ -235,7 +235,7 @@
     .skool, .prix { padding: 38px 36px 34px; }
     .skool h2 { font-size: 3rem; }
     .skool-texte { font-size: 1.0625rem; max-width: 30ch; }
-    .sk-chiffres b { font-size: 2rem; }
+    .sk-chiffres b { font-size: 1.9rem; }
     .pied { margin-top: 90px; }
   }
   @media (prefers-reduced-motion: reduce) {
@@ -286,7 +286,7 @@
       <p class="chapeau">FruitRadar est une extension Chrome qui crée tes vidéos TikTok de fruits IA, de l'idée à la publication. Tu choisis l'histoire, il s'occupe du reste.</p>
       <div class="actions">
         <a class="appel" href="#prix">Voir l'offre</a>
-        <a class="lien" href="essai.html">Essayer le Radar gratuitement</a>
+        <a class="lien" href="installer.html?choix=essai">Essayer le Radar gratuitement pendant 3 jours</a>
       </div>
       <div class="chiffres">
         <ul aria-label="Mes chiffres sur TikTok">
@@ -377,7 +377,7 @@
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.5 4.5 10.5-11"/></svg><span>Les mises à jour, en un clic</span></li>
       </ul>
       <a class="prix-appel" href="installer.html">S'abonner</a>
-      <p class="essai"><a href="essai.html">Ou essaie le Radar gratuitement pendant 3 jours</a></p>
+      <p class="essai"><a href="installer.html?choix=essai">Essayer le Radar gratuitement pendant 3 jours</a></p>
       <p class="prix-note">Sans engagement&nbsp;: tu arrêtes en ligne quand tu veux. Extension Chrome, sur ordinateur. Elle travaille avec tes comptes Claude, ChatGPT, Grok et CapCut.</p>
     </section>
   </div>
@@ -387,10 +387,10 @@
 
 <footer class="pied">
   <p class="pied-marque">FruitRadar</p>
-  <p class="pied-texte">Une création de Timothée Hamel. FruitRadar est en bêta&nbsp;: il s'améliore à chaque mise à jour.</p>
+  <p class="pied-texte">FruitRadar est en bêta&nbsp;: il s'améliore à chaque mise à jour.</p>
   <p class="pied-contact">Une question&nbsp;? <a href="mailto:contact@fruitradar.fr">contact@fruitradar.fr</a></p>
   <nav class="pied-liens" aria-label="Pages légales"><a href="conditions.html">Conditions générales</a> <a href="confidentialite.html">Confidentialité</a> <a href="utilisation.html">Utilisation acceptable</a> <a href="conditions.html#editeur">Mentions légales</a></nav>
-  <p class="pied-droits">© 2026 Timothée Hamel. Tous droits réservés.</p>
+  <p class="pied-droits">© 2026 FruitRadar. Tous droits réservés.</p>
   <p class="pied-affil">FruitRadar est un produit indépendant. Il n'est ni affilié ni approuvé par Anthropic (Claude), OpenAI (ChatGPT), xAI (Grok), ByteDance (TikTok, CapCut), Google (Gemini) ou les autres services cités. Ces noms sont des marques de leurs propriétaires.</p>
 </footer>
 

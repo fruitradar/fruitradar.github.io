@@ -36,29 +36,14 @@
   <header class="titre-page">
     <h1>Installe FruitRadar</h1>
     <p>Quatre étapes, cinq minutes.</p>
-    <ul class="puces"><li>Sur ordinateur</li><li>Dans Chrome</li></ul>
+    <ul class="puces"><li>Sur ordinateur</li><li>Dans Google Chrome</li></ul>
+    <p class="sans-chrome">Pas encore Chrome&nbsp;? <a href="https://www.google.com/chrome/" target="_blank" rel="noopener">Télécharge-le ici</a>, c'est gratuit.</p>
   </header>
 
   <ol class="etapes">
     <li class="carte etape">
       <span class="num" aria-hidden="true">1</span>
-      <div><h2>Prends ta clé</h2><p>Elle s'affiche juste après. Copie-la.</p></div>
-      <div class="suite choix">
-        <a class="cle vive" href="https://fruitradar-serveur.pages.dev/acheter">
-          <b>S'abonner</b><i>25,99&nbsp;€ / mois</i>
-          <span>Le Radar et les vidéos automatiques.</span>
-        </a>
-        <a class="cle" href="essai.html">
-          <b>Essayer le Radar</b><i>Gratuit</i>
-          <span>3 jours, sans carte. Le Radar seulement.</span>
-        </a>
-        <p class="cgv">Sans engagement&nbsp;: tu arrêtes quand tu veux. <a href="conditions.html">Conditions générales</a></p>
-      </div>
-    </li>
-
-    <li class="carte etape">
-      <span class="num" aria-hidden="true">2</span>
-      <div><h2>Télécharge le dossier</h2><p>Dézippe-le dans <strong>Documents</strong>.</p></div>
+      <div><h2>Télécharge FruitRadar</h2><p>Tu reçois un dossier compressé (.zip). Fais un clic droit dessus, puis «&nbsp;Extraire tout&nbsp;», et range le dossier dans <strong>Documents</strong>.</p></div>
       <div class="suite">
         <a class="bouton" href="https://github.com/timotheehml-bot/maj/raw/main/FruitRadar-vente.zip">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>
@@ -68,21 +53,40 @@
     </li>
 
     <li class="carte etape">
-      <span class="num" aria-hidden="true">3</span>
-      <div><h2>Ajoute-le à Chrome</h2><p>Colle cette adresse dans Chrome&nbsp;: <strong id="adr">chrome://extensions</strong></p></div>
+      <span class="num" aria-hidden="true">2</span>
+      <div><h2>Ajoute-le à Chrome</h2><p>Chrome ne laisse aucun site ouvrir sa page des extensions&nbsp;: copie son adresse et colle-la toi-même.</p></div>
       <div class="suite">
+        <p class="adresse" id="adr">chrome://extensions</p>
         <button class="bouton" type="button" data-copie="adr">Copier l'adresse</button>
         <ol class="gestes">
+          <li>Colle l'adresse dans la barre d'adresse de Chrome, puis appuie sur Entrée</li>
           <li>Active «&nbsp;Mode développeur&nbsp;», en haut à droite</li>
           <li>Clique «&nbsp;Charger l'extension non empaquetée&nbsp;»</li>
-          <li>Choisis le dossier dézippé</li>
+          <li>Choisis le dossier FruitRadar que tu as extrait</li>
         </ol>
+        <p class="astuce">FruitRadar s'ouvre alors tout seul dans un nouvel onglet. Pour le garder sous la main&nbsp;: clique sur la pièce de puzzle à droite de la barre d'adresse, puis sur l'épingle à côté de FruitRadar.</p>
+      </div>
+    </li>
+
+    <li class="carte etape">
+      <span class="num" aria-hidden="true">3</span>
+      <div><h2>Prends ta clé</h2><p>La clé, c'est ce qui active FruitRadar sur ton ordinateur&nbsp;: elle ouvre le Radar et, avec l'abonnement, les vidéos automatiques. Elle s'affiche tout de suite et tu la reçois aussi par e-mail.</p></div>
+      <div class="suite choix" id="choix">
+        <a class="cle vive" data-choix="abonnement" href="https://fruitradar-serveur.pages.dev/acheter">
+          <b>S'abonner</b><i>25,99&nbsp;€ / mois</i>
+          <span>Le Radar et les vidéos automatiques.</span>
+        </a>
+        <a class="cle" data-choix="essai" href="essai.html">
+          <b>Essayer le Radar</b><i>Gratuit</i>
+          <span>Pendant 3 jours, sans carte. Le Radar seulement.</span>
+        </a>
+        <p class="cgv">Sans engagement&nbsp;: tu arrêtes quand tu veux. <a href="conditions.html">Conditions générales</a></p>
       </div>
     </li>
 
     <li class="carte etape">
       <span class="num" aria-hidden="true">4</span>
-      <div><h2>Colle ta clé</h2><p>Ouvre FruitRadar, colle la clé, clique «&nbsp;Activer&nbsp;». C'est prêt.</p></div>
+      <div><h2>Active FruitRadar</h2><p>Dans l'onglet FruitRadar, colle ta clé dans «&nbsp;Entre ta clé FruitRadar&nbsp;» et clique «&nbsp;Activer FruitRadar&nbsp;». C'est prêt.</p><p class="astuce">Pour le rouvrir plus tard&nbsp;: son icône en haut à droite de Chrome, puis «&nbsp;Ouvrir le dashboard&nbsp;».</p></div>
     </li>
   </ol>
 
@@ -91,10 +95,18 @@
     <li><b>Mises à jour</b>Un bouton apparaît dans FruitRadar.</li>
     <li><b>Pour les vidéos</b>Tes comptes Claude, ChatGPT, Grok et CapCut.</li>
   </ul>
+  <script>
+    // Venu de « Essayer le Radar » sur l'accueil (installer.html?choix=essai) : l'essai passe en premier, en couleur, à l'étape 3.
+    (function () {
+      if (new URLSearchParams(location.search).get('choix') !== 'essai') return;
+      var box = document.getElementById('choix'), ab = box.querySelector('[data-choix="abonnement"]'), es = box.querySelector('[data-choix="essai"]');
+      ab.classList.remove('vive'); es.classList.add('vive'); box.insertBefore(es, ab);
+    })();
+  </script>
 
   <p class="contact"><a href="retrouver.html">Clé perdue&nbsp;?</a> · Un souci&nbsp;? <a href="mailto:contact@fruitradar.fr">contact@fruitradar.fr</a></p>
   <nav class="liens" aria-label="Pages légales"><a href="conditions.html">Conditions générales</a> <a href="confidentialite.html">Confidentialité</a> <a href="utilisation.html">Utilisation acceptable</a> <a href="conditions.html#editeur">Mentions légales</a></nav>
-  <p class="pied">Une création de <strong>Timothée Hamel</strong>. © 2026, tous droits réservés. FruitRadar est un produit indépendant. Il n'est ni affilié ni approuvé par Anthropic (Claude), OpenAI (ChatGPT), xAI (Grok), ByteDance (TikTok, CapCut), Google (Gemini) ou les autres services cités. Ces noms sont des marques de leurs propriétaires.</p>
+  <p class="pied">© 2026 FruitRadar. Tous droits réservés. FruitRadar est un produit indépendant. Il n'est ni affilié ni approuvé par Anthropic (Claude), OpenAI (ChatGPT), xAI (Grok), ByteDance (TikTok, CapCut), Google (Gemini) ou les autres services cités. Ces noms sont des marques de leurs propriétaires.</p>
 </main>
 <script>
   // Chrome refuse d'ouvrir chrome://extensions depuis une page web : on met l'adresse dans le presse-papiers.
