@@ -66,6 +66,7 @@
   .doc h2 .num { font: 700 1rem/1 var(--titre); font-style: normal; color: var(--rubis); }
   .doc section > :not(h2) { margin-left: 2rem; }
   .doc p, .doc li { max-width: 66ch; }
+  .bouton-mesure { margin-top: 0.625rem; font: inherit; font-weight: 600; color: var(--lien); background: none; border: 1px solid currentColor; border-radius: 62.4375rem; padding: 0.4375rem 1rem; cursor: pointer; } .bouton-mesure:hover { background: #faf1e3; } .bouton-mesure:focus-visible { outline: 2px solid var(--lien); outline-offset: 2px; } .mesure-etat { display: block; margin-top: 0.5rem; color: var(--doux); }
   .doc ul { padding-left: 1.1em; display: grid; gap: 0.5rem; }
   .doc li::marker { color: var(--rubis); }
   .doc strong { color: var(--encre); font-weight: 600; }
@@ -122,14 +123,15 @@
           <li><a href="#responsable"><span class="num">1</span><span>Qui est responsable</span></a></li>
           <li><a href="#principe"><span class="num">2</span><span>Le principe</span></a></li>
           <li><a href="#donnees"><span class="num">3</span><span>Ce qui sort de ton ordinateur, et pourquoi</span></a></li>
-          <li><a href="#paiement"><span class="num">4</span><span>Le paiement</span></a></li>
-          <li><a href="#tiers"><span class="num">5</span><span>Les sites que FruitRadar utilise pour toi</span></a></li>
-          <li><a href="#email"><span class="num">6</span><span>Les e-mails</span></a></li>
-          <li><a href="#base"><span class="num">7</span><span>Pourquoi j’ai le droit de les traiter</span></a></li>
-          <li><a href="#duree"><span class="num">8</span><span>Combien de temps</span></a></li>
-          <li><a href="#transferts"><span class="num">9</span><span>Hors de l’Union européenne</span></a></li>
-          <li><a href="#droits"><span class="num">10</span><span>Tes droits</span></a></li>
-          <li><a href="#maj"><span class="num">11</span><span>Changements</span></a></li>
+          <li><a href="#audience"><span class="num">4</span><span>La mesure d’audience du site</span></a></li>
+          <li><a href="#paiement"><span class="num">5</span><span>Le paiement</span></a></li>
+          <li><a href="#tiers"><span class="num">6</span><span>Les sites que FruitRadar utilise pour toi</span></a></li>
+          <li><a href="#email"><span class="num">7</span><span>Les e-mails</span></a></li>
+          <li><a href="#base"><span class="num">8</span><span>Pourquoi j’ai le droit de les traiter</span></a></li>
+          <li><a href="#duree"><span class="num">9</span><span>Combien de temps</span></a></li>
+          <li><a href="#transferts"><span class="num">10</span><span>Hors de l’Union européenne</span></a></li>
+          <li><a href="#droits"><span class="num">11</span><span>Tes droits</span></a></li>
+          <li><a href="#maj"><span class="num">12</span><span>Changements</span></a></li>
       </ol>
     </nav>
     <main id="texte" class="zone">
@@ -138,14 +140,15 @@
           <li><a href="#responsable"><span class="num">1</span><span>Qui est responsable</span></a></li>
           <li><a href="#principe"><span class="num">2</span><span>Le principe</span></a></li>
           <li><a href="#donnees"><span class="num">3</span><span>Ce qui sort de ton ordinateur, et pourquoi</span></a></li>
-          <li><a href="#paiement"><span class="num">4</span><span>Le paiement</span></a></li>
-          <li><a href="#tiers"><span class="num">5</span><span>Les sites que FruitRadar utilise pour toi</span></a></li>
-          <li><a href="#email"><span class="num">6</span><span>Les e-mails</span></a></li>
-          <li><a href="#base"><span class="num">7</span><span>Pourquoi j’ai le droit de les traiter</span></a></li>
-          <li><a href="#duree"><span class="num">8</span><span>Combien de temps</span></a></li>
-          <li><a href="#transferts"><span class="num">9</span><span>Hors de l’Union européenne</span></a></li>
-          <li><a href="#droits"><span class="num">10</span><span>Tes droits</span></a></li>
-          <li><a href="#maj"><span class="num">11</span><span>Changements</span></a></li>
+          <li><a href="#audience"><span class="num">4</span><span>La mesure d’audience du site</span></a></li>
+          <li><a href="#paiement"><span class="num">5</span><span>Le paiement</span></a></li>
+          <li><a href="#tiers"><span class="num">6</span><span>Les sites que FruitRadar utilise pour toi</span></a></li>
+          <li><a href="#email"><span class="num">7</span><span>Les e-mails</span></a></li>
+          <li><a href="#base"><span class="num">8</span><span>Pourquoi j’ai le droit de les traiter</span></a></li>
+          <li><a href="#duree"><span class="num">9</span><span>Combien de temps</span></a></li>
+          <li><a href="#transferts"><span class="num">10</span><span>Hors de l’Union européenne</span></a></li>
+          <li><a href="#droits"><span class="num">11</span><span>Tes droits</span></a></li>
+          <li><a href="#maj"><span class="num">12</span><span>Changements</span></a></li>
         </ol>
       </details>
       <article class="doc">
@@ -157,8 +160,8 @@
           <h2><span class="num">2</span><span>Le principe</span></h2>
       <ul>
         <li>FruitRadar garde ses données dans ton Chrome&nbsp;: vidéos repérées, réglages, productions.</li>
-        <li>Pas de publicité, pas de mesure d’audience, pas de revente de données.</li>
-        <li>Le site fruitradar.fr ne dépose aucun cookie et ne charge aucun service tiers.</li>
+        <li>Pas de publicité, pas de revente de données.</li>
+        <li>Le site fruitradar.fr ne dépose aucun cookie et ne charge aucun service tiers. Il compte ses visites lui-même, sans cookie&nbsp;: voir «&nbsp;La mesure d’audience du site&nbsp;» plus bas.</li>
         <li>Pour afficher mes chiffres TikTok à jour, la page d’accueil interroge le serveur FruitRadar&nbsp;: comme tout site web, il voit ton adresse IP, que FruitRadar ne garde pas.</li>
         <li>Quand tu demandes un essai gratuit, le serveur garde 30 jours une empreinte de ta connexion internet, calculée à partir de ton adresse IP&nbsp;: ton adresse IP elle-même n’est jamais gardée. Elle sert seulement à limiter les essais à 2 par connexion.</li>
       </ul>
@@ -173,47 +176,59 @@
         <li><strong>Une vidéo à analyser</strong>, seulement si tu utilises l’option Gemini, envoyée à Google avec ta propre clé.</li>
       </ul>
         </section>
+        <section id="audience">
+          <h2><span class="num">4</span><span>La mesure d’audience du site</span></h2>
+      <ul>
+        <li>Pour savoir combien de personnes visitent fruitradar.fr et ce qui les intéresse, chaque page envoie au serveur FruitRadar&nbsp;: la page vue, le site ou l’appli d’où tu arrives (par exemple TikTok), le type d’appareil, le navigateur, le système et la langue, les boutons sur lesquels tu cliques («&nbsp;Voir l’offre&nbsp;», «&nbsp;S’abonner&nbsp;», «&nbsp;Essayer&nbsp;», la communauté Skool…), les parties de l’accueil que tu as vues, le temps passé sur la page et jusqu’où tu as lu l’accueil. Le pays est déduit de ta connexion par Cloudflare.</li>
+        <li>Pour qu’une personne ne compte qu’une fois, même si elle revient ou reclique, ton navigateur garde un numéro tiré au hasard («&nbsp;fr_mesure&nbsp;», dans le stockage local du site), 13 mois au plus, sans être prolongé par tes visites. Il ne sert qu’à ces statistiques&nbsp;: il n’est relié ni à ton nom, ni à ton e-mail, ni à ta clé, ni à ton compte TikTok, et il n’est jamais partagé. Aucun cookie, aucun service tiers.</li>
+        <li>Le serveur ne garde jamais ce numéro tel quel, seulement une empreinte salée, avec pour chaque jour où tu viens&nbsp;: les pages vues, les boutons cliqués, et le profil de la visite (provenance, type d’appareil, navigateur, système, langue, pays). Si ton navigateur bloque ce stockage, une empreinte du jour calculée à partir de ton adresse IP et de ton navigateur le remplace&nbsp;; ton adresse IP elle-même n’est jamais gardée.</li>
+        <li>Ces données ne servent qu’à des statistiques d’ensemble pour améliorer le site, par exemple «&nbsp;120 personnes, dont 15 ont cliqué sur S’abonner&nbsp;»&nbsp;: jamais à de la publicité, jamais revendues, jamais croisées avec autre chose.</li>
+        <li>Tu ne veux pas être compté&nbsp;? Active «&nbsp;Ne pas suivre&nbsp;» (Global Privacy Control ou Do Not Track) dans ton navigateur, ou clique ci-dessous&nbsp;: la page n’envoie alors plus rien. Tu peux aussi t’y opposer en m’écrivant.<br><button type="button" class="bouton-mesure" data-mesure-stop>Ne plus être compté sur ce navigateur</button> <span class="mesure-etat" data-mesure-etat role="status"></span></li>
+      </ul>
+        </section>
         <section id="paiement">
-          <h2><span class="num">4</span><span>Le paiement</span></h2>
+          <h2><span class="num">5</span><span>Le paiement</span></h2>
       <p>Le paiement est traité par Stripe, qui reçoit ton nom, ton e-mail, ton pays et ta carte. Je ne vois jamais ton numéro de carte. Stripe me donne accès à ton e-mail, ton nom, ton pays, tes factures et l’état de ton abonnement, pour gérer ta licence et te répondre.</p>
         </section>
         <section id="tiers">
-          <h2><span class="num">5</span><span>Les sites que FruitRadar utilise pour toi</span></h2>
+          <h2><span class="num">6</span><span>Les sites que FruitRadar utilise pour toi</span></h2>
       <p>FruitRadar agit dans tes onglets, avec tes comptes, sur TikTok, Claude, ChatGPT, Grok, CapCut et les sites de transcription. Ce que tu y fais passe directement entre ton navigateur et ces services, selon leurs propres politiques de confidentialité. Je ne le reçois pas.</p>
         </section>
         <section id="email">
-          <h2><span class="num">6</span><span>Les e-mails</span></h2>
+          <h2><span class="num">7</span><span>Les e-mails</span></h2>
       <p>Les messages envoyés à <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=contact@fruitradar.fr" target="_blank" rel="noopener">contact@fruitradar.fr</a> sont hébergés par OVHcloud et peuvent être transférés vers une boîte Gmail (Google) que je suis seul à consulter. Les e-mails automatiques (ta clé après un achat, un essai ou une demande «&nbsp;Clé perdue&nbsp;», ou l’avis de fin d’essai) partent de cle@fruitradar.fr par le service Resend, depuis ses serveurs en Irlande&nbsp;: il reçoit ton adresse e-mail et le texte du message.</p>
         </section>
         <section id="base">
-          <h2><span class="num">7</span><span>Pourquoi j’ai le droit de les traiter</span></h2>
+          <h2><span class="num">8</span><span>Pourquoi j’ai le droit de les traiter</span></h2>
       <ul>
         <li>Licence, paiement et support&nbsp;: l’exécution de ton abonnement.</li>
         <li>Factures&nbsp;: une obligation légale.</li>
+        <li>Mesure d’audience du site&nbsp;: mon intérêt légitime à comprendre comment le site est utilisé, avec des statistiques d’ensemble seulement. Elle respecte les conditions de la CNIL pour la mesure d’audience dispensée de consentement, et tu peux t’y opposer à tout moment («&nbsp;Ne pas suivre&nbsp;», le bouton de la partie 4, ou par e-mail).</li>
         <li>Historique des clés, un seul ordinateur par clé, limite des changements d’ordinateur, limite des essais gratuits, journaux techniques et lutte contre la fraude (clés partagées, essais à répétition)&nbsp;: mon intérêt légitime à protéger FruitRadar.</li>
       </ul>
         </section>
         <section id="duree">
-          <h2><span class="num">8</span><span>Combien de temps</span></h2>
+          <h2><span class="num">9</span><span>Combien de temps</span></h2>
       <ul>
         <li>Fiche de ta clé sur le serveur&nbsp;: supprimée 12 mois après ta dernière utilisation, ou plus tôt sur simple demande.</li>
         <li>Historique de ta clé et ses changements d’ordinateur&nbsp;: 6 mois.</li>
         <li>Empreinte de connexion d’une demande d’essai&nbsp;: 30 jours.</li>
+        <li>Mesure d’audience du site&nbsp;: le numéro dans ton navigateur, 13 mois au plus&nbsp;; tes visites sur le serveur (empreinte, pages, boutons, profil de la visite), 13 mois&nbsp;; les totaux par jour comptés par le serveur lui-même (pages de paiement ouvertes, essais envoyés…), 25 mois.</li>
         <li>Adresse e-mail simplifiée et numéro d’ordinateur d’un essai gratuit&nbsp;: 12 mois, pour qu’un même essai ne soit pas redonné.</li>
         <li>Messages de support&nbsp;: jusqu’à 3 ans après notre dernier échange.</li>
         <li>Factures&nbsp;: 10 ans, la durée imposée par la loi.</li>
       </ul>
         </section>
         <section id="transferts">
-          <h2><span class="num">9</span><span>Hors de l’Union européenne</span></h2>
+          <h2><span class="num">10</span><span>Hors de l’Union européenne</span></h2>
       <p>Certains prestataires (GitHub, Cloudflare, Google, Stripe) peuvent traiter des données hors de l’Union européenne, notamment aux États-Unis. Ils encadrent ces transferts par les garanties prévues par le RGPD, comme les clauses contractuelles types ou le Data Privacy Framework.</p>
         </section>
         <section id="droits">
-          <h2><span class="num">10</span><span>Tes droits</span></h2>
+          <h2><span class="num">11</span><span>Tes droits</span></h2>
       <p>Tu peux demander à accéder à tes données, les corriger, les effacer, les récupérer, limiter leur utilisation ou t’y opposer&nbsp;: écris à <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=contact@fruitradar.fr" target="_blank" rel="noopener">contact@fruitradar.fr</a>. Je réponds sous un mois au plus. Si tu estimes que tes droits ne sont pas respectés, tu peux saisir la CNIL (cnil.fr).</p>
         </section>
         <section id="maj">
-          <h2><span class="num">11</span><span>Changements</span></h2>
+          <h2><span class="num">12</span><span>Changements</span></h2>
       <p>Si cette politique change de façon importante, je te préviens dans FruitRadar ou par e-mail.</p>
         </section>
 
@@ -227,5 +242,6 @@
   <p>FruitRadar est un produit indépendant. Il n’est ni affilié ni approuvé par Anthropic (Claude), OpenAI (ChatGPT), xAI (Grok), ByteDance (TikTok, CapCut), Google (Gemini) ou les autres services cités. Ces noms sont des marques de leurs propriétaires.</p>
   <p>© 2026 FruitRadar. Tous droits réservés.</p>
 </footer>
+<script src="mesure.js?v=8fa71d65" defer></script>
 </body>
 </html>
