@@ -99,6 +99,7 @@
   .chiffres ul { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.5rem; }
   .chiffres li { font-size: .78rem; line-height: 1.35; color: var(--brume); }
   .chiffres b { display: block; margin-bottom: 0.5rem; font: 800 1.8rem/1 var(--texte); letter-spacing: -.025em; color: var(--or); white-space: nowrap; }
+  .chiffres-titre { margin: 0 0 1.125rem; font: italic 600 1.25rem/1.25 var(--affiche); font-variation-settings: "opsz" 24; color: var(--ivoire); text-wrap: balance; }
 
   /* ----- les sections ----- */
   .section { max-width: 35rem; margin: 4.75rem auto 0; padding: 0 1.5rem; }
@@ -214,6 +215,7 @@
     .chiffres ul { gap: 1.25rem; }
     .chiffres li { font-size: .875rem; }
     .chiffres b { font-size: 2.25rem; }
+    .chiffres-titre { margin-bottom: 1.25rem; font-size: 1.5rem; }
 
     .section { max-width: 68.75rem; margin-top: 7.5rem; }
     .titre { font-size: 2.9rem; }
@@ -292,7 +294,8 @@
         <a class="lien" href="installer.html?choix=essai">Essayer le Radar gratuitement pendant 3 jours</a>
       </div>
       <div class="chiffres">
-        <ul aria-label="Mes chiffres sur TikTok">
+        <p class="chiffres-titre" id="t-chiffres">En 2 mois d'automatisation, voici mon résultat&nbsp;:</p>
+        <ul aria-labelledby="t-chiffres">
           <li><b data-v="abonnes">89,6&nbsp;K</b>abonnés sur TikTok</li>
           <li><b data-v="record">2,7&nbsp;M</b>vues sur une seule vidéo</li>
           <li><b data-v="trois">6,7&nbsp;M</b>vues sur trois vidéos</li>
