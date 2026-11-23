@@ -163,6 +163,9 @@
   .prix-montant { margin-top: 0.25rem; display: flex; align-items: baseline; flex-wrap: wrap; gap: 0.25rem 0.625rem; }
   .prix-montant b { font: 800 clamp(2.9rem, 13.5vw, 3.4rem)/1 var(--texte); letter-spacing: -.035em; white-space: nowrap; }
   .prix-montant span { font-size: .9375rem; color: var(--encre-2); }
+  .prix-montant s { font: 700 1.25rem/1 var(--texte); color: var(--encre-2); text-decoration-thickness: 2px; }
+  .prix-promo { display: inline-block; margin-top: 0.625rem; padding: 0.25rem 0.75rem; border-radius: 62.4375rem; background: var(--rubis); color: #fff; font-weight: 700; font-size: .8125rem; }
+  .prix-promo[hidden] { display: none; }
   .prix ul { margin-top: 1.375rem; padding-top: 1.125rem; border-top: 1px solid #ddd0c4; display: grid; gap: 0.75rem; }
   .prix li { display: grid; grid-template-columns: 1.125rem 1fr; gap: 0.625rem; font-size: .9375rem; line-height: 1.45; }
   .prix li svg { width: 1.125rem; height: 1.125rem; margin-top: 2px; color: var(--rubis); }
@@ -247,24 +250,24 @@
 </head>
 <body>
 <div class="fond" aria-hidden="true"><div class="mur">
-<div class="col"><img src="mur-3.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"><img src="mur-3.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"><img src="mur-3.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"></div>
-<div class="col"><img src="mur-7.webp" width="200" height="2097" alt="" decoding="async" loading="lazy"><img src="mur-7.webp" width="200" height="2097" alt="" decoding="async" loading="lazy"><img src="mur-7.webp" width="200" height="2097" alt="" decoding="async" loading="lazy"></div>
-<div class="col"><img src="mur-1.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"><img src="mur-1.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"><img src="mur-1.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"></div>
-<div class="col"><img src="mur-5.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"><img src="mur-5.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"><img src="mur-5.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"></div>
-<div class="col"><img src="mur-2.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"><img src="mur-2.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"><img src="mur-2.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"></div>
-<div class="col"><img src="mur-6.webp" width="200" height="2374" alt="" decoding="async" loading="lazy"><img src="mur-6.webp" width="200" height="2374" alt="" decoding="async" loading="lazy"><img src="mur-6.webp" width="200" height="2374" alt="" decoding="async" loading="lazy"></div>
-<div class="col"><img src="mur-4.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"><img src="mur-4.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"><img src="mur-4.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"></div>
-<div class="col"><img src="mur-8.webp" width="200" height="2097" alt="" decoding="async" loading="lazy"><img src="mur-8.webp" width="200" height="2097" alt="" decoding="async" loading="lazy"><img src="mur-8.webp" width="200" height="2097" alt="" decoding="async" loading="lazy"></div>
-<div class="col"><img src="mur-1.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"><img src="mur-1.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"><img src="mur-1.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"></div>
-<div class="col"><img src="mur-5.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"><img src="mur-5.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"><img src="mur-5.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"></div>
-<div class="col"><img src="mur-3.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"><img src="mur-3.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"><img src="mur-3.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"></div>
-<div class="col"><img src="mur-7.webp" width="200" height="2097" alt="" decoding="async" loading="lazy"><img src="mur-7.webp" width="200" height="2097" alt="" decoding="async" loading="lazy"><img src="mur-7.webp" width="200" height="2097" alt="" decoding="async" loading="lazy"></div>
-<div class="col"><img src="mur-2.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"><img src="mur-2.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"><img src="mur-2.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"></div>
-<div class="col"><img src="mur-6.webp" width="200" height="2374" alt="" decoding="async" loading="lazy"><img src="mur-6.webp" width="200" height="2374" alt="" decoding="async" loading="lazy"><img src="mur-6.webp" width="200" height="2374" alt="" decoding="async" loading="lazy"></div>
-<div class="col"><img src="mur-4.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"><img src="mur-4.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"><img src="mur-4.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"></div>
-<div class="col"><img src="mur-8.webp" width="200" height="2097" alt="" decoding="async" loading="lazy"><img src="mur-8.webp" width="200" height="2097" alt="" decoding="async" loading="lazy"><img src="mur-8.webp" width="200" height="2097" alt="" decoding="async" loading="lazy"></div>
-<div class="col"><img src="mur-1.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"><img src="mur-1.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"><img src="mur-1.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"></div>
-<div class="col"><img src="mur-5.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"><img src="mur-5.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"><img src="mur-5.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"></div>
+<div class="col"><img src="img/mur-3.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"><img src="img/mur-3.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"><img src="img/mur-3.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"></div>
+<div class="col"><img src="img/mur-7.webp" width="200" height="2097" alt="" decoding="async" loading="lazy"><img src="img/mur-7.webp" width="200" height="2097" alt="" decoding="async" loading="lazy"><img src="img/mur-7.webp" width="200" height="2097" alt="" decoding="async" loading="lazy"></div>
+<div class="col"><img src="img/mur-1.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"><img src="img/mur-1.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"><img src="img/mur-1.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"></div>
+<div class="col"><img src="img/mur-5.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"><img src="img/mur-5.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"><img src="img/mur-5.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"></div>
+<div class="col"><img src="img/mur-2.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"><img src="img/mur-2.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"><img src="img/mur-2.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"></div>
+<div class="col"><img src="img/mur-6.webp" width="200" height="2374" alt="" decoding="async" loading="lazy"><img src="img/mur-6.webp" width="200" height="2374" alt="" decoding="async" loading="lazy"><img src="img/mur-6.webp" width="200" height="2374" alt="" decoding="async" loading="lazy"></div>
+<div class="col"><img src="img/mur-4.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"><img src="img/mur-4.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"><img src="img/mur-4.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"></div>
+<div class="col"><img src="img/mur-8.webp" width="200" height="2097" alt="" decoding="async" loading="lazy"><img src="img/mur-8.webp" width="200" height="2097" alt="" decoding="async" loading="lazy"><img src="img/mur-8.webp" width="200" height="2097" alt="" decoding="async" loading="lazy"></div>
+<div class="col"><img src="img/mur-1.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"><img src="img/mur-1.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"><img src="img/mur-1.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"></div>
+<div class="col"><img src="img/mur-5.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"><img src="img/mur-5.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"><img src="img/mur-5.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"></div>
+<div class="col"><img src="img/mur-3.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"><img src="img/mur-3.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"><img src="img/mur-3.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"></div>
+<div class="col"><img src="img/mur-7.webp" width="200" height="2097" alt="" decoding="async" loading="lazy"><img src="img/mur-7.webp" width="200" height="2097" alt="" decoding="async" loading="lazy"><img src="img/mur-7.webp" width="200" height="2097" alt="" decoding="async" loading="lazy"></div>
+<div class="col"><img src="img/mur-2.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"><img src="img/mur-2.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"><img src="img/mur-2.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"></div>
+<div class="col"><img src="img/mur-6.webp" width="200" height="2374" alt="" decoding="async" loading="lazy"><img src="img/mur-6.webp" width="200" height="2374" alt="" decoding="async" loading="lazy"><img src="img/mur-6.webp" width="200" height="2374" alt="" decoding="async" loading="lazy"></div>
+<div class="col"><img src="img/mur-4.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"><img src="img/mur-4.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"><img src="img/mur-4.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"></div>
+<div class="col"><img src="img/mur-8.webp" width="200" height="2097" alt="" decoding="async" loading="lazy"><img src="img/mur-8.webp" width="200" height="2097" alt="" decoding="async" loading="lazy"><img src="img/mur-8.webp" width="200" height="2097" alt="" decoding="async" loading="lazy"></div>
+<div class="col"><img src="img/mur-1.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"><img src="img/mur-1.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"><img src="img/mur-1.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"></div>
+<div class="col"><img src="img/mur-5.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"><img src="img/mur-5.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"><img src="img/mur-5.webp" width="200" height="2738" alt="" decoding="async" loading="lazy"></div>
 </div></div>
 
 <header class="tete" id="haut">
@@ -283,7 +286,7 @@
 <main>
   <section class="scene">
     <figure class="ecran">
-      <img src="accueil.jpg" width="1152" height="1440" fetchpriority="high" alt="Une scène de mes vidéos : un soir de fête sur un port, une grenade aux cheveux blancs lève les yeux vers un citron en uniforme de marin.">
+      <img src="img/accueil.jpg" width="1152" height="1440" fetchpriority="high" alt="Une scène de mes vidéos : un soir de fête sur un port, une grenade aux cheveux blancs lève les yeux vers un citron en uniforme de marin.">
       <p class="sous-titre">— Elle a fait combien de vues&nbsp;?<br>— Deux millions. Et je n'ai rien monté.</p>
     </figure>
     <div class="accroche">
@@ -322,9 +325,9 @@
     <h2 class="titre" id="t-videos">Le Secret de Grenadina</h2>
     <p class="sous" data-v="trois-long">6,7 millions de vues en trois parties</p>
     <div class="affiches">
-      <figure data-id="7705540914264952086"><img src="grenadina-partie-1.jpg" width="486" height="648" loading="lazy" alt="Miniature de ma vidéo « Le Secret de Grenadina », partie 1 : et si c'était pas lui ?"><figcaption><span>Partie 1</span><b>2,7&nbsp;M</b>de vues</figcaption></figure>
-      <figure data-id="7705936195947171094"><img src="grenadina-partie-2.jpg" width="486" height="648" loading="lazy" alt="Miniature de ma vidéo « Le Secret de Grenadina », partie 2 : le copain de sa sœur ?!"><figcaption><span>Partie 2</span><b>2,7&nbsp;M</b>de vues</figcaption></figure>
-      <figure data-id="7706224869192617219"><img src="grenadina-partie-3.jpg" width="486" height="648" loading="lazy" alt="Miniature de ma vidéo « Le Secret de Grenadina », partie 3 : et si c'était pas lui ?"><figcaption><span>Partie 3</span><b>1,3&nbsp;M</b>de vues</figcaption></figure>
+      <figure data-id="7705540914264952086"><img src="img/grenadina-partie-1.jpg" width="486" height="648" loading="lazy" alt="Miniature de ma vidéo « Le Secret de Grenadina », partie 1 : et si c'était pas lui ?"><figcaption><span>Partie 1</span><b>2,7&nbsp;M</b>de vues</figcaption></figure>
+      <figure data-id="7705936195947171094"><img src="img/grenadina-partie-2.jpg" width="486" height="648" loading="lazy" alt="Miniature de ma vidéo « Le Secret de Grenadina », partie 2 : le copain de sa sœur ?!"><figcaption><span>Partie 2</span><b>2,7&nbsp;M</b>de vues</figcaption></figure>
+      <figure data-id="7706224869192617219"><img src="img/grenadina-partie-3.jpg" width="486" height="648" loading="lazy" alt="Miniature de ma vidéo « Le Secret de Grenadina », partie 3 : et si c'était pas lui ?"><figcaption><span>Partie 3</span><b>1,3&nbsp;M</b>de vues</figcaption></figure>
     </div>
     <p class="note">Ce sont mes chiffres, pas une garantie.</p>
   </section>
@@ -334,19 +337,19 @@
     <p class="sous">FruitRadar s'ouvre dans un onglet de Chrome. Voilà ce que tu y trouves.</p>
     <div class="defile" id="defile" tabindex="0" role="group" aria-label="Captures de FruitRadar, à faire défiler">
       <figure class="vue">
-        <img src="vue-radar.jpg" width="808" height="1200" loading="lazy" alt="Capture de FruitRadar, le Radar : les vidéos classées par score viral, avec leur miniature, leur rang, leur note sur 100 et leurs vues.">
+        <img src="img/vue-radar.jpg" width="808" height="1200" loading="lazy" alt="Capture de FruitRadar, le Radar : les vidéos classées par score viral, avec leur miniature, leur rang, leur note sur 100 et leurs vues.">
         <figcaption><strong>Le Radar</strong><span>Les vidéos de fruits IA qui percent, notées sur 100. Un bouton suffit pour refaire la tienne.</span></figcaption>
       </figure>
       <figure class="vue">
-        <img src="vue-auto.jpg" width="808" height="1200" loading="lazy" alt="Capture de FruitRadar, l'Automatisation : quatre départs possibles pour une vidéo, et la vidéo choisie à reproduire.">
+        <img src="img/vue-auto.jpg" width="808" height="1200" loading="lazy" alt="Capture de FruitRadar, l'Automatisation : quatre départs possibles pour une vidéo, et la vidéo choisie à reproduire.">
         <figcaption><strong>L'automatisation</strong><span>Quatre départs&nbsp;: une vidéo du Radar, ton idée, dix idées proposées ou la suite d'une histoire.</span></figcaption>
       </figure>
       <figure class="vue">
-        <img src="vue-idees.jpg" width="808" height="1200" loading="lazy" alt="Capture de FruitRadar, « 10 idées proposées » : une histoire avec ses deux premières secondes, son résumé, ses personnages et le bouton pour la choisir.">
+        <img src="img/vue-idees.jpg" width="808" height="1200" loading="lazy" alt="Capture de FruitRadar, « 10 idées proposées » : une histoire avec ses deux premières secondes, son résumé, ses personnages et le bouton pour la choisir.">
         <figcaption><strong>Dix idées, quand tu n'en as pas</strong><span>Chaque idée arrive avec son accroche et ses personnages. Tu en choisis une, ça tourne tout seul.</span></figcaption>
       </figure>
       <figure class="vue">
-        <img src="vue-suite.jpg" width="808" height="1200" loading="lazy" alt="Capture de FruitRadar, « Suite d'une histoire » : les parties déjà faites, avec leur miniature, pour continuer l'histoire.">
+        <img src="img/vue-suite.jpg" width="808" height="1200" loading="lazy" alt="Capture de FruitRadar, « Suite d'une histoire » : les parties déjà faites, avec leur miniature, pour continuer l'histoire.">
         <figcaption><strong>Les suites</strong><span>Partie 2, 3, 4… avec les mêmes personnages, là où l'histoire s'est arrêtée.</span></figcaption>
       </figure>
     </div>
@@ -375,7 +378,8 @@
 
     <section class="prix" id="prix" aria-labelledby="t-prix">
       <h2 class="prix-nom" id="t-prix">Ton abonnement FruitRadar</h2>
-      <p class="prix-montant"><b>25,99&nbsp;€</b><span>par mois</span></p>
+      <p class="prix-promo" data-offre="badge" hidden></p>
+      <p class="prix-montant" data-offre="montant"><b>25,99&nbsp;€</b><span>par mois</span></p>
       <ul>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.5 4.5 10.5-11"/></svg><span>Le Radar&nbsp;: les vidéos de fruits IA qui percent sur TikTok, notées sur 100</span></li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.5 4.5 10.5-11"/></svg><span>L'automatisation&nbsp;: histoire, images, clips, montage et miniature</span></li>
@@ -486,6 +490,21 @@
   fl.forEach(function (b) { b.addEventListener('click', function () { aller(courant() + Number(b.dataset.pas)); }); });
   d.addEventListener('keydown', function (e) { if (e.key === 'ArrowRight') { e.preventDefault(); aller(courant() + 1); } else if (e.key === 'ArrowLeft') { e.preventDefault(); aller(courant() - 1); } });
   peindre();
+})();
+</script>
+<script>
+/* Promo du moment (réglée dans FruitRadar Admin) : prix barré et prix du 1er mois. Sans réponse du serveur, le prix normal reste affiché. */
+(function () {
+  var b = document.querySelector('[data-offre="badge"]'), m = document.querySelector('[data-offre="montant"]');
+  if (!b || !m || !window.fetch) return;
+  var eur = function (c) { return (c / 100).toLocaleString('fr-FR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + '\u00a0€'; };
+  fetch('https://fruitradar-serveur.pages.dev/offre', { credentials: 'omit' }).then(function (r) { return r.json(); }).then(function (o) {
+    var p = o && o.promo;
+    if (!p || !(p.pct > 0) || !(p.prix > 0) || !(o.prix > p.prix)) return;
+    b.textContent = '-' + p.pct + '\u00a0% sur ton 1er mois';
+    b.hidden = false;
+    m.innerHTML = '<s>' + eur(o.prix) + '</s><b>' + eur(p.prix) + '</b><span>le 1er mois, puis ' + eur(o.prix) + ' par mois</span>';
+  }).catch(function () { /* prix normal */ });
 })();
 </script>
 <script src="mesure.js?v=8fa71d65" defer></script>
